@@ -122,8 +122,14 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="drop.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="filldropdownbypagemethode.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Gridsearch.aspx" />
+    <Content Include="highlightmouseover.aspx" />
+    <Content Include="manualsorting.aspx" />
+    <Content Include="manualpaging.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -152,6 +158,11 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="gridpaging.aspx" />
+    <Content Include="gridsorting.aspx" />
+    <Content Include="datareaderdataset.aspx" />
+    <Content Include="Dropdown.aspx" />
+    <Content Include="webmethod.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -179,7 +190,10 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="showpassword.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="summary validation.aspx" />
+    <Content Include="validation.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -195,6 +209,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="connectionclass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -209,10 +224,59 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="drop.aspx.cs">
+      <DependentUpon>drop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="drop.aspx.designer.cs">
+      <DependentUpon>drop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="filldropdownbypagemethode.aspx.cs">
+      <DependentUpon>filldropdownbypagemethode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="filldropdownbypagemethode.aspx.designer.cs">
+      <DependentUpon>filldropdownbypagemethode.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Gridsearch.aspx.cs">
+      <DependentUpon>Gridsearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gridsearch.aspx.designer.cs">
+      <DependentUpon>Gridsearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="highlightmouseover.aspx.cs">
+      <DependentUpon>highlightmouseover.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="highlightmouseover.aspx.designer.cs">
+      <DependentUpon>highlightmouseover.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manualsorting.aspx.cs">
+      <DependentUpon>manualsorting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manualsorting.aspx.designer.cs">
+      <DependentUpon>manualsorting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manualpaging.aspx.cs">
+      <DependentUpon>manualpaging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manualpaging.aspx.designer.cs">
+      <DependentUpon>manualpaging.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="showpassword.aspx.cs">
+      <DependentUpon>showpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showpassword.aspx.designer.cs">
+      <DependentUpon>showpassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,12 +291,61 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="summary validation.aspx.cs">
+      <DependentUpon>summary validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="summary validation.aspx.designer.cs">
+      <DependentUpon>summary validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="validation.aspx.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="validation.aspx.designer.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="gridpaging.aspx.cs">
+      <DependentUpon>gridpaging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gridpaging.aspx.designer.cs">
+      <DependentUpon>gridpaging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gridsorting.aspx.cs">
+      <DependentUpon>gridsorting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gridsorting.aspx.designer.cs">
+      <DependentUpon>gridsorting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datareaderdataset.aspx.cs">
+      <DependentUpon>datareaderdataset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="datareaderdataset.aspx.designer.cs">
+      <DependentUpon>datareaderdataset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dropdown.aspx.cs">
+      <DependentUpon>Dropdown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dropdown.aspx.designer.cs">
+      <DependentUpon>Dropdown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webmethod.aspx.cs">
+      <DependentUpon>webmethod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webmethod.aspx.designer.cs">
+      <DependentUpon>webmethod.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

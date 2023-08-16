@@ -25,12 +25,18 @@ namespace WebApplication1
         {
             try
             {
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_GridPaging";
+                command.Parameters.AddWithValue("@topno",12);
 
-                string str = "select top 100 CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,EmailAddress from Dimcustomer";
+                DataTable dt= new DataTable();
+                SqlDataAdapter adr = new SqlDataAdapter(command);
+                adr.Fill(dt);
 
-                co.Connectionopen();
-                ViewState["paging"] = co.Showdata(str);
-                GridView1.DataSource = co.Showdata(str);
+                ViewState["paging"] = dt;
+                GridView1.DataSource = dt;
                 GridView1.DataBind();
 
             }

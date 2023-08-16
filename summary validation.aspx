@@ -1,60 +1,60 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="summary validation.aspx.cs" Inherits="WebApplication1.summary_validation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script lang="javascript" type="text/javascript">
 
 
-        function validationcheck() {
-
-            var summary = "";
-            summary += isvaliduser();
-            summary += isvalidfistname();
-            summary += isvalidsecondname();
-            summary += isvalidpassword();
-            summary += isvalidconfirmpassword();
-            summary += isvalidemail();
-            summary += isvalidphoneno();
-
-            if (summary != "") {
-                alert(summary);
-                return false;
-            } else {
-                return true;
-            }
-        }
+     <script lang="javascript" type="text/javascript">
 
 
+         function validationcheck() {
 
-        function isvaliduser() {
-            var id;
-            var temp = document.getElementById("<%=TextBox3.Text%>");
-            id = temp.value;
-            if (id == "") { return "please enter username" + "\n" }
-        }
-        function isvalidfistname() {
-            var id;
-            var temp = document.getElementById("<%=TextBox1.Text%>");
-            id = temp.value;
+             var summary = "";
+             summary += isvaliduser();
+             summary += isvalidfistname();
+             summary += isvalidsecondname();
+             summary += isvalidpassword();
+             summary += isvalidconfirmpassword();
+             summary += isvalidemail();
+             summary += isvalidphoneno();
 
-            if (id == "") { return "please enter first name" + "\n" }
-            else { return ""; }
-        }
-        function isvalidsecondname() {
-            var id;
-            var temp = document.getElementById("<%=TextBox2.Text%>");
-            id = temp.value;
+             if (summary != "") {
+                 alert(summary);
+                 return false;
+             } else {
+                 return true;
+             }
+         }
 
 
-            if (id == "") { return "please enter second name" + "\n" }
-            else { return ""; }
 
-        }
+         function isvaliduser() {
+             var id;
+             var temp = document.getElementById("<%=TextBox3.Text%>");
+             id = temp.value;
+             if (id == "") { return "please enter username" + "\n" }
+         }
+         function isvalidfistname() {
+             var id;
+             var temp = document.getElementById("<%=TextBox1.Text%>");
+             id = temp.value;
 
-        function isvalidpassword() {
-            var id;
-            var temp = document.getElementById("<%=TextBox4.Text%>")
+             if (id == "") { return "please enter first name" + "\n" }
+             else { return ""; }
+         }
+         function isvalidsecondname() {
+             var id;
+             var temp = document.getElementById("<%=TextBox2.Text%>");
+             id = temp.value;
+
+
+             if (id == "") { return "please enter second name" + "\n" }
+             else { return ""; }
+
+         }
+
+         function isvalidpassword() {
+             var id;
+             var temp = document.getElementById("<%=TextBox4.Text%>")
             if (id == "") { return "please enter your password" + "\n" }
             else { return ""; }
 
@@ -83,25 +83,32 @@
         function isvalidphoneno() {
             var id;
             var temp = document.getElementById("<%=TextBox7.Text%>");
-            id = temp.value;
-            var re;
-            re = /^[0-9]+$/;
-            var digits = /\d(10)/;
-            if (id == "") {
-                return ("Please enter phone no" + "\n");
-            } else if (re.test(id)) {
-                return "";
-            } else {
-                return ("Phone no should be digits only" + "\n");
-            }
-        }
-       
+             id = temp.value;
+             var re;
+             re = /^[0-9]+$/;
+             var digits = /\d(10)/;
+             if (id == "") {
+                 return ("Please enter phone no" + "\n");
+             } else if (re.test(id)) {
+                 return "";
+             } else {
+                 return ("Phone no should be digits only" + "\n");
+             }
+         }
 
 
 
 
-    </script>
 
+     </script> 
+
+
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    
+
+  
     <table>
 
         <tr>

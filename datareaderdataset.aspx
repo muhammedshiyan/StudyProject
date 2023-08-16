@@ -10,13 +10,13 @@
                 <tr>
                     <td>select country</td>
                     <td>
-                        <asp:DropDownList ID="ddlcountry" runat="server" OnSelectedIndexChanged="Ddlcountry_SelectedIndexChanged"></asp:DropDownList></td>
+                        <asp:DropDownList ID="ddlcountry" runat="server" OnSelectedIndexChanged="Ddlcountry_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList></td>
                 </tr>
                 <tr>
                     <td>select state
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlstate" runat="server" OnSelectedIndexChanged="Ddlstate_SelectedIndexChanged"></asp:DropDownList></td>
+                        <asp:DropDownList ID="ddlstate" runat="server" OnSelectedIndexChanged="Ddlstate_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList></td>
                 </tr>
                 <tr>
 
@@ -24,7 +24,7 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddldistrict" runat="server" OnSelectedIndexChanged="Ddldistrict_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="ddldistrict" runat="server" OnSelectedIndexChanged="Ddldistrict_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                     </td>
                 </tr>
 

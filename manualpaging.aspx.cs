@@ -16,11 +16,12 @@ namespace WebApplication1
 {
     public partial class manualsorting : System.Web.UI.Page
     {
+        readonly Connectionclass co = new Connectionclass();    
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Custom(1, 5);
+                Custom(1,5);
             }
             Addpagingbutton();
 
@@ -29,37 +30,27 @@ namespace WebApplication1
         {
             try
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ConnectionString);
-
-                SqlCommand cmd = new SqlCommand("SP_CustomPaging", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                //cmd.Parameters.AddWithValue("@Pageno", Pageno);
-
-                //cmd.Parameters.AddWithValue("@Noofrecord", Noofrecord);
-
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "SP_CustomPaging";
 
                 SqlParameter pageNo = new SqlParameter("@Pageno", Pageno);
                 SqlParameter noOfRecord = new SqlParameter("@Noofrecord", Noofrecord);
                 SqlParameter tottalsp = new SqlParameter("@Tottalrecord", System.Data.SqlDbType.Int);
                 tottalsp.Direction = System.Data.ParameterDirection.Output;
 
-
-                cmd.Parameters.Add(pageNo);
-                cmd.Parameters.Add(noOfRecord);
-                cmd.Parameters.Add(tottalsp);
-
+                command.Parameters.Add(pageNo);
+                command.Parameters.Add(noOfRecord);
+                command.Parameters.Add(tottalsp);
+       
                 DataTable dt = new DataTable();
-                if (con.State != ConnectionState.Open)
-                {
-                    con.Open();
-                }
-
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
 
                 adapter.Fill(dt);
 
                 int Tottalrecord = 0 ;
+
                 if (tottalsp.Value != null)
                 {
 
@@ -67,10 +58,11 @@ namespace WebApplication1
 
                 }
 
+
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
+                Tottalrecord = (Tottalrecord/5);
 
-               
 
                 ViewState["tottalrecord"] = Tottalrecord;
                 ViewState["Noofrecord"] = Noofrecord;
@@ -88,36 +80,45 @@ namespace WebApplication1
 
         protected void Addpagingbutton()
         {
-            int tottalrecord = 0;
-            int noofrecord = 0;
-            tottalrecord = ViewState["tottalrecord"] != null ? (int)ViewState["tottalrecord"] : 0;
-            noofrecord = ViewState["Noofrecord"] != null ? (int)ViewState["Noofrecord"] : 0;
-            int pages = 0;
-            if (tottalrecord > 0 && noofrecord > 0)
+            try
             {
-
-                pages = (tottalrecord / noofrecord) + ((tottalrecord % noofrecord) > 0 ? 1 : 0);
-                for (int i = 0; i < pages; i++)
+                int tottalrecord = 0;
+                int noofrecord = 0;
+                tottalrecord = ViewState["tottalrecord"] != null ? (int)ViewState["tottalrecord"] : 0;
+                noofrecord = ViewState["Noofrecord"] != null ? (int)ViewState["Noofrecord"] : 0;
+                int pages = 0;
+                if (tottalrecord > 0 && noofrecord > 0)
                 {
-                    Button b = new Button();
-                    b.Text = (i + 1).ToString();
-                    b.CommandArgument = (i + 1).ToString();
-                    b.ID = "Button" + (i + 1).ToString();
-                    b.Click += new EventHandler(this.b_click);
 
-                    Panel1.Controls.Add(b);
+                    pages = (tottalrecord / noofrecord) + ((tottalrecord % noofrecord) > 0 ? 1 : 0);
+                    for (int i = 0; i < pages; i++)
+                    {
+                        Button b = new Button();
+                        b.Text = (i + 1).ToString();
+                        b.CommandArgument = (i + 1).ToString();
+                        b.ID = "Button" + (i + 1).ToString();
+                        b.Click += new EventHandler(this.b_click);
 
+                        Panel1.Controls.Add(b);
+
+                    }
                 }
+
             }
-
-
+            catch (Exception e) { }
+            finally { }
 
         }
 
         protected void b_click(object sender, EventArgs e)
         {
-            string pageno = ((Button)sender).CommandArgument ;
-            Custom(Convert.ToInt32(pageno),5);
+            try
+            {
+                string pageno = ((Button)sender).CommandArgument;
+                Custom(Convert.ToInt32(pageno), 5);
+            }
+            catch (Exception ex) { }
+            finally { }
         }
 
 

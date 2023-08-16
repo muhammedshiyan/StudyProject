@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,9 +25,23 @@ namespace WebApplication1
         {   
             
             co.Connectionopen();
-            string str = "select TOP 12 ResellerKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
-       
-            GridView1.DataSource = co.Showdata(str);
+           // string str = "select TOP 12 ResellerKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
+
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = co.Connectionopen();
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.CommandText = "sp_GridSearch";
+
+            command.Parameters.AddWithValue("@top", 15);
+         
+
+
+            SqlDataAdapter adr = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adr.Fill(dt);
+
+            GridView1.DataSource = dt;
             GridView1.DataBind();   
 
 
@@ -36,12 +52,20 @@ namespace WebApplication1
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
-            co.Connectionopen();
-            string str = "select TOP 12 ResellerKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller  where ResellerName LIKE '"+TextBox1.Text+"%'";
+            SqlCommand command = new SqlCommand();
+            command.Connection = co.Connectionopen();
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.CommandText = "sp_GridSearchLike";
 
-            GridView1.DataSource = co.Showdata(str);
+            command.Parameters.AddWithValue("@top", 15);
+            command.Parameters.AddWithValue("@textchange", TextBox1.Text);
+
+            SqlDataAdapter adr = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adr.Fill(dt);
+
+            GridView1.DataSource = dt;
             GridView1.DataBind();
-
 
         }
     }

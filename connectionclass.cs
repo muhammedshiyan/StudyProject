@@ -50,6 +50,7 @@ namespace WebApplication1
 
 
         }
+
         public SqlDataReader GetDataReader(string str)
         {
             SqlDataReader rdr = null;

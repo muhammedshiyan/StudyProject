@@ -1,0 +1,96 @@
+-----------Exception Details on  03-08-2023 10:46:07-----------------
+------------------------------
+
+
+
+Log Written Date: 03-08-2023 10:46:07
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+-----------Exception Details on  03-08-2023 10:46:17-----------------
+------------------------------
+
+
+
+Log Written Date: 03-08-2023 10:46:17
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+-----------Exception Details on  03-08-2023 10:46:18-----------------
+------------------------------
+
+
+
+Log Written Date: 03-08-2023 10:46:18
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+-----------Exception Details on  03-08-2023 10:46:21-----------------
+------------------------------
+
+
+
+Log Written Date: 03-08-2023 10:46:21
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+

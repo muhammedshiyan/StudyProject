@@ -10,13 +10,13 @@
                 <tr>
                     <td>select country</td>
                     <td>
-                        <asp:DropDownList ID="ddlcountry" runat="server" OnSelectedIndexChanged="OnCountryChange" OnTextChanged="ddlcountry_TextChanged"></asp:DropDownList></td>
+                        <asp:DropDownList ID="ddlcountry" runat="server" OnSelectedIndexChanged="OnCountryChange" OnTextChanged="ddlcountry_TextChanged" AutoPostBack="True"></asp:DropDownList></td>
                 </tr>
                 <tr>
                     <td>select state
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlstate" runat="server" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged" OnTextChanged="ddlstate_TextChanged"></asp:DropDownList></td>
+                        <asp:DropDownList ID="ddlstate" runat="server" OnSelectedIndexChanged="ddlstate_SelectedIndexChanged" OnTextChanged="ddlstate_TextChanged" AutoPostBack="True"></asp:DropDownList></td>
                 </tr>
                 <tr>
 
@@ -24,11 +24,10 @@
                     </td>
                     <td>
 
-                        <asp:DropDownList ID="ddldistrict" runat="server" OnSelectedIndexChanged="ddldistrict_SelectedIndexChanged" OnTextChanged="ddldistrict_TextChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="ddldistrict" runat="server" OnSelectedIndexChanged="ddldistrict_SelectedIndexChanged" OnTextChanged="ddldistrict_TextChanged" AutoPostBack="True"></asp:DropDownList>
                     </td>
                 </tr>
-
-
+              
             </table>
         </div>
 

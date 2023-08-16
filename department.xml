@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<department xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <departmemtname>phy</departmemtname>
+  <departmentid>12</departmentid>
+  <departmentcategory>normal</departmentcategory>
+</department>

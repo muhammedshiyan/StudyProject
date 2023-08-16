@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTable>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="DepartmentData" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="DepartmentData">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ResellerKey" type="xs:int" minOccurs="0" />
+                <xs:element name="Phone" type="xs:string" minOccurs="0" />
+                <xs:element name="BusinessType" type="xs:string" minOccurs="0" />
+                <xs:element name="ResellerName" type="xs:string" minOccurs="0" />
+                <xs:element name="FirstOrderYear" type="xs:int" minOccurs="0" />
+                <xs:element name="LastOrderYear" type="xs:int" minOccurs="0" />
+                <xs:element name="ProductLine" type="xs:string" minOccurs="0" />
+                <xs:element name="AddressLine1" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement>
+      <DepartmentData diffgr:id="DepartmentData1" msdata:rowOrder="0">
+        <ResellerKey>1</ResellerKey>
+        <Phone>245-555-0173</Phone>
+        <BusinessType>Value Added Reseller</BusinessType>
+        <ResellerName>A Bike Store</ResellerName>
+        <FirstOrderYear>2011</FirstOrderYear>
+        <LastOrderYear>2011</LastOrderYear>
+        <ProductLine>Road</ProductLine>
+        <AddressLine1>2251 Elliot Avenue</AddressLine1>
+      </DepartmentData>
+      <DepartmentData diffgr:id="DepartmentData2" msdata:rowOrder="1">
+        <ResellerKey>2</ResellerKey>
+        <Phone>170-555-0127</Phone>
+        <BusinessType>Specialty Bike Shop</BusinessType>
+        <ResellerName>Progressive Sports</ResellerName>
+        <FirstOrderYear>2012</FirstOrderYear>
+        <LastOrderYear>2013</LastOrderYear>
+        <ProductLine>Mountain</ProductLine>
+        <AddressLine1>3207 S Grady Way</AddressLine1>
+      </DepartmentData>
+      <DepartmentData diffgr:id="DepartmentData3" msdata:rowOrder="2">
+        <ResellerKey>3</ResellerKey>
+        <Phone>279-555-0130</Phone>
+        <BusinessType>Warehouse</BusinessType>
+        <ResellerName>Advanced Bike Components</ResellerName>
+        <FirstOrderYear>2011</FirstOrderYear>
+        <LastOrderYear>2013</LastOrderYear>
+        <ProductLine>Road</ProductLine>
+        <AddressLine1>12345 Sterling Avenue</AddressLine1>
+      </DepartmentData>
+      <DepartmentData diffgr:id="DepartmentData4" msdata:rowOrder="3">
+        <ResellerKey>4</ResellerKey>
+        <Phone>710-555-0173</Phone>
+        <BusinessType>Value Added Reseller</BusinessType>
+        <ResellerName>Modular Cycle Systems</ResellerName>
+        <FirstOrderYear>2011</FirstOrderYear>
+        <LastOrderYear>2013</LastOrderYear>
+        <ProductLine>Road</ProductLine>
+        <AddressLine1>800 Interchange Blvd.</AddressLine1>
+      </DepartmentData>
+      <DepartmentData diffgr:id="DepartmentData5" msdata:rowOrder="4">
+        <ResellerKey>5</ResellerKey>
+        <Phone>828-555-0186</Phone>
+        <BusinessType>Specialty Bike Shop</BusinessType>
+        <ResellerName>Metropolitan Sports Supply</ResellerName>
+        <FirstOrderYear>2012</FirstOrderYear>
+        <LastOrderYear>2013</LastOrderYear>
+        <ProductLine>Road</ProductLine>
+        <AddressLine1>482505 Warm Springs Blvd.</AddressLine1>
+      </DepartmentData>
+    </DocumentElement>
+  </diffgr:diffgram>
+</DataTable>

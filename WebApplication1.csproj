@@ -50,7 +50,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -103,6 +106,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="addreference.aspx" />
+    <Content Include="autocomplete.asmx" />
+    <Content Include="autocompletetextbox.asmx" />
+    <Content Include="autocompletetextbox.aspx" />
+    <None Include="Connected Services\ServiceReferencedata1\WebService1.disco" />
+    <None Include="Connected Services\ServiceReferencedata1\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferencedata1\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferencedata1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ServiceReferencesum\WebService1.disco" />
+    <None Include="Connected Services\ServiceReferencesum\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReferencesum\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReferencesum\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -121,15 +142,33 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="cookie.aspx" />
+    <Content Include="datatabletojson.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="drop.aspx" />
+    <Content Include="dynamic table.aspx" />
+    <Content Include="Dynamic Tbl List.aspx" />
+    <Content Include="DYNAMICJS.aspx" />
+    <Content Include="DynamicT.aspx" />
+    <Content Include="errorlogfile.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="filldropdownbypagemethode.aspx" />
+    <Content Include="htmltablecreation.aspx" />
+    <Content Include="iframe.aspx" />
+    <Content Include="jquery validation.aspx" />
+    <Content Include="jsonserialiseanddeserialise.aspx" />
+    <Content Include="pagemethod.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Gridsearch.aspx" />
     <Content Include="highlightmouseover.aspx" />
     <Content Include="manualsorting.aspx" />
     <Content Include="manualpaging.aspx" />
+    <Content Include="pagemethodetrain.aspx" />
+    <Content Include="phone and year validation.aspx" />
+    <Content Include="popupwindow.aspx" />
+    <Content Include="querystring.aspx" />
+    <Content Include="raisecallback.aspx" />
+    <Content Include="raisecallbacktrain.aspx" />
+    <Content Include="readingandwritingxml.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -162,7 +201,22 @@
     <Content Include="gridsorting.aspx" />
     <Content Include="datareaderdataset.aspx" />
     <Content Include="Dropdown.aspx" />
+    <Content Include="updatepanel.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm5.aspx" />
     <Content Include="webmethod.aspx" />
+    <Content Include="Webmethod1.asmx" />
+    <Content Include="webmethodtrain.aspx" />
+    <Content Include="webmetodtest1.aspx" />
+    <Content Include="WebService1.asmx" />
+    <Content Include="webserviceaddreference.aspx" />
+    <Content Include="webtest.aspx" />
+    <Content Include="WebUserControltrain.ascx" />
+    <Content Include="XMLFile1.xml" />
+    <Content Include="xmlserialdeserial.aspx" />
+    <None Include="Connected Services\ServiceReferencedata1\WebService1.wsdl" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Connected Services\ServiceReferencesum\WebService1.wsdl" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -200,6 +254,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addreference.aspx.cs">
+      <DependentUpon>addreference.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addreference.aspx.designer.cs">
+      <DependentUpon>addreference.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -209,6 +270,31 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="autocomplete.asmx.cs">
+      <DependentUpon>autocomplete.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="autocompletetextbox.asmx.cs">
+      <DependentUpon>autocompletetextbox.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="autocompletetextbox.aspx.cs">
+      <DependentUpon>autocompletetextbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="autocompletetextbox.aspx.designer.cs">
+      <DependentUpon>autocompletetextbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReferencedata1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceReferencesum\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="connectionclass.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -216,6 +302,20 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cookie.aspx.cs">
+      <DependentUpon>cookie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cookie.aspx.designer.cs">
+      <DependentUpon>cookie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="datatabletojson.aspx.cs">
+      <DependentUpon>datatabletojson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="datatabletojson.aspx.designer.cs">
+      <DependentUpon>datatabletojson.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -231,12 +331,76 @@
     <Compile Include="drop.aspx.designer.cs">
       <DependentUpon>drop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="filldropdownbypagemethode.aspx.cs">
-      <DependentUpon>filldropdownbypagemethode.aspx</DependentUpon>
+    <Compile Include="dynamic table.aspx.cs">
+      <DependentUpon>dynamic table.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="filldropdownbypagemethode.aspx.designer.cs">
-      <DependentUpon>filldropdownbypagemethode.aspx</DependentUpon>
+    <Compile Include="dynamic table.aspx.designer.cs">
+      <DependentUpon>dynamic table.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dynamic Tbl List.aspx.cs">
+      <DependentUpon>Dynamic Tbl List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dynamic Tbl List.aspx.designer.cs">
+      <DependentUpon>Dynamic Tbl List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DYNAMICJS.aspx.cs">
+      <DependentUpon>DYNAMICJS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DYNAMICJS.aspx.designer.cs">
+      <DependentUpon>DYNAMICJS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicT.aspx.cs">
+      <DependentUpon>DynamicT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DynamicT.aspx.designer.cs">
+      <DependentUpon>DynamicT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorlogfile.aspx.cs">
+      <DependentUpon>errorlogfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorlogfile.aspx.designer.cs">
+      <DependentUpon>errorlogfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExceptionLogging.cs" />
+    <Compile Include="htmltablecreation.aspx.cs">
+      <DependentUpon>htmltablecreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="htmltablecreation.aspx.designer.cs">
+      <DependentUpon>htmltablecreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iframe.aspx.cs">
+      <DependentUpon>iframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iframe.aspx.designer.cs">
+      <DependentUpon>iframe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jquery validation.aspx.cs">
+      <DependentUpon>jquery validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jquery validation.aspx.designer.cs">
+      <DependentUpon>jquery validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jsonserialiseanddeserialise.aspx.cs">
+      <DependentUpon>jsonserialiseanddeserialise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jsonserialiseanddeserialise.aspx.designer.cs">
+      <DependentUpon>jsonserialiseanddeserialise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagemethod.aspx.cs">
+      <DependentUpon>pagemethod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagemethod.aspx.designer.cs">
+      <DependentUpon>pagemethod.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -269,7 +433,56 @@
     <Compile Include="manualpaging.aspx.designer.cs">
       <DependentUpon>manualpaging.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pagemethodetrain.aspx.cs">
+      <DependentUpon>pagemethodetrain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagemethodetrain.aspx.designer.cs">
+      <DependentUpon>pagemethodetrain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone and year validation.aspx.cs">
+      <DependentUpon>phone and year validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone and year validation.aspx.designer.cs">
+      <DependentUpon>phone and year validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popupwindow.aspx.cs">
+      <DependentUpon>popupwindow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popupwindow.aspx.designer.cs">
+      <DependentUpon>popupwindow.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="querystring.aspx.cs">
+      <DependentUpon>querystring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="querystring.aspx.designer.cs">
+      <DependentUpon>querystring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="raisecallback.aspx.cs">
+      <DependentUpon>raisecallback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="raisecallback.aspx.designer.cs">
+      <DependentUpon>raisecallback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="raisecallbacktrain.aspx.cs">
+      <DependentUpon>raisecallbacktrain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="raisecallbacktrain.aspx.designer.cs">
+      <DependentUpon>raisecallbacktrain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="readingandwritingxml.aspx.cs">
+      <DependentUpon>readingandwritingxml.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="readingandwritingxml.aspx.designer.cs">
+      <DependentUpon>readingandwritingxml.aspx</DependentUpon>
+    </Compile>
     <Compile Include="showpassword.aspx.cs">
       <DependentUpon>showpassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +510,13 @@
     </Compile>
     <Compile Include="summary validation.aspx.designer.cs">
       <DependentUpon>summary validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updatepanel.aspx.cs">
+      <DependentUpon>updatepanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatepanel.aspx.designer.cs">
+      <DependentUpon>updatepanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="validation.aspx.cs">
       <DependentUpon>validation.aspx</DependentUpon>
@@ -340,6 +560,20 @@
     <Compile Include="Dropdown.aspx.designer.cs">
       <DependentUpon>Dropdown.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webmethod.aspx.cs">
       <DependentUpon>webmethod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,9 +581,60 @@
     <Compile Include="webmethod.aspx.designer.cs">
       <DependentUpon>webmethod.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webmethod1.asmx.cs">
+      <DependentUpon>Webmethod1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="webmethodtrain.aspx.cs">
+      <DependentUpon>webmethodtrain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webmethodtrain.aspx.designer.cs">
+      <DependentUpon>webmethodtrain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webmetodtest1.aspx.cs">
+      <DependentUpon>webmetodtest1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webmetodtest1.aspx.designer.cs">
+      <DependentUpon>webmetodtest1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="webserviceaddreference.aspx.cs">
+      <DependentUpon>webserviceaddreference.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webserviceaddreference.aspx.designer.cs">
+      <DependentUpon>webserviceaddreference.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webtest.aspx.cs">
+      <DependentUpon>webtest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webtest.aspx.designer.cs">
+      <DependentUpon>webtest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControltrain.ascx.cs">
+      <DependentUpon>WebUserControltrain.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControltrain.ascx.designer.cs">
+      <DependentUpon>WebUserControltrain.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="xmlserialdeserial.aspx.cs">
+      <DependentUpon>xmlserialdeserial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xmlserialdeserial.aspx.designer.cs">
+      <DependentUpon>xmlserialdeserial.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="usercontrol\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -361,6 +646,24 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Webmethod1.asmx.resx">
+      <DependentUpon>Webmethod1.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceReferencedata1\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReferencesum\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ClassLibrary4\ClassLibrary4.csproj">
+      <Project>{2e5d4ad1-8c77-4c5f-a2f6-724ef946c55f}</Project>
+      <Name>ClassLibrary4</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

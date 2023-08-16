@@ -71,6 +71,10 @@ D:\StudyProject\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInpu
 D:\StudyProject\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\StudyProject\WebApplication1\obj\Debug\WebApplication1.dll
 D:\StudyProject\WebApplication1\obj\Debug\WebApplication1.pdb
+D:\StudyProject\obj\Debug\WebApplication1.csproj.AssemblyReference.cache
+D:\StudyProject\obj\Debug\WebApplication1.Webmethod1.resources
+D:\StudyProject\obj\Debug\WebApplication1.csproj.GenerateResource.cache
+D:\StudyProject\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\StudyProject\bin\WebApplication1.dll.config
 D:\StudyProject\bin\WebApplication1.dll
 D:\StudyProject\bin\WebApplication1.pdb
@@ -125,6 +129,7 @@ D:\StudyProject\bin\roslyn\VBCSCompiler.exe
 D:\StudyProject\bin\roslyn\VBCSCompiler.exe.config
 D:\StudyProject\bin\Antlr3.Runtime.dll
 D:\StudyProject\bin\AspNet.ScriptManager.jQuery.dll
+D:\StudyProject\bin\ClassLibrary4.dll
 D:\StudyProject\bin\Microsoft.AspNet.FriendlyUrls.dll
 D:\StudyProject\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
 D:\StudyProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -134,13 +139,12 @@ D:\StudyProject\bin\Microsoft.Web.Infrastructure.dll
 D:\StudyProject\bin\Newtonsoft.Json.dll
 D:\StudyProject\bin\System.Web.Optimization.dll
 D:\StudyProject\bin\WebGrease.dll
+D:\StudyProject\bin\ClassLibrary4.pdb
 D:\StudyProject\bin\System.Web.Optimization.xml
 D:\StudyProject\bin\Newtonsoft.Json.xml
 D:\StudyProject\bin\Antlr3.Runtime.pdb
 D:\StudyProject\bin\Microsoft.AspNet.FriendlyUrls.xml
 D:\StudyProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\StudyProject\obj\Debug\WebApplication1.csproj.AssemblyReference.cache
-D:\StudyProject\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 D:\StudyProject\obj\Debug\WebApplication1.csproj.CopyComplete
 D:\StudyProject\obj\Debug\WebApplication1.dll
 D:\StudyProject\obj\Debug\WebApplication1.pdb

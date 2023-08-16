@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,10 +12,11 @@ namespace WebApplication1
 {
     public partial class manualpagnigsorting : System.Web.UI.Page
     {
+        readonly Connectionclass co = new Connectionclass();
         protected void Page_Load(object sender, EventArgs e)
         {
-           if (!IsPostBack)
-             {
+            if (!IsPostBack)
+            {
                 Databind();
             }
         }
@@ -23,17 +25,26 @@ namespace WebApplication1
 
         public void Databind()
         {
-            Connectionclass con = new Connectionclass();
-            con.Connectionopen();
-            string str = "select top 15 * from Dimaccount";
-            con.Executequery(str);
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "SP_ManualSort";
 
-            object obt = con.Showdata(str);
-            DataTable dt = (DataTable)obt;
+                command.Parameters.AddWithValue("@topno", 12);
 
-            ViewState["datatable"] = dt;
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+                SqlDataAdapter adr = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adr.Fill(dt);
+                ViewState["datatable"] = dt;
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            catch (Exception ex) { }
+            finally { }
+
+
         }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -42,25 +53,14 @@ namespace WebApplication1
 
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //string dataTableString = ViewState["datatable"].ToString();
-
-        
-            //DataTable dt = new DataTable();
-            //if (!string.IsNullOrEmpty(dataTableString))
-            //{
-            //    using (var reader = new System.IO.StringReader(dataTableString))
-            //    {
-            //        dt.ReadXml(reader);
-            //    }
-            //}
 
             DataTable dt = (DataTable)ViewState["datatable"];
-            if(dt != null)
+            if (dt != null)
             {
 
-                
-                dt.DefaultView.Sort = e.SortExpression + " " + Direction(e.SortExpression );
-                GridView1.DataSource=dt.DefaultView;
+
+                dt.DefaultView.Sort = e.SortExpression + " " + Direction(e.SortExpression);
+                GridView1.DataSource = dt.DefaultView;
                 ViewState["datatable"] = dt;
                 GridView1.DataBind();
             }
@@ -77,16 +77,17 @@ namespace WebApplication1
 
 
             if (sortexpression != null)
-            {   if (sortexpression == column)
+            {
+                if (sortexpression == column)
                 {
-                     lastdirection = ViewState["sortdirection"] as string;
+                    lastdirection = ViewState["sortdirection"] as string;
                     if ((lastdirection != null) && (lastdirection == "ASC"))
                     {
                         sortdirection = "DESC";
                     }
                 }
             }
-            ViewState["sortdirection"]= sortdirection;
+            ViewState["sortdirection"] = sortdirection;
             ViewState["sortexpression"] = column;
 
 

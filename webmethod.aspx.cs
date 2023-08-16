@@ -8,8 +8,9 @@ using System.Web.Services;
 using System.Data;
 using System.Drawing;
 using System.Web.Script.Serialization;
-
-
+using System.Web.Script.Services;
+using System.Web.Configuration;
+using System.Data.SqlClient;
 
 namespace WebApplication1
 {
@@ -19,48 +20,14 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            GetProduct();
+
 
         }
+
         
-        [System.Web.Services.WebMethod]
-        [System.Web.Script.Services.ScriptMethod]
-        public string GetProduct()
-        {
+        protected void DropDownList1_CallingDataMethods(object sender, CallingDataMethodsEventArgs e)
+       {
 
-            var productList = GetProductData();
-
-
-            var serializer = new JavaScriptSerializer();
-            var json = serializer.Serialize(productList);
-            Response.Write(json);
-            return json;
         }
-        public List<ListItem> GetProductData()
-        {
-            co.Connectionopen();
-
-            List<ListItem> list_product = new List<ListItem>();
-
-            string str = "select top 12 ProductKey,EnglishProductName  from DimProduct";
-
-
-            GridView1.DataSource = co.Showdata(str);
-            GridView1.DataBind();
-
-            DropDownList1.DataBind();
-            foreach (GridViewRow row in GridView1.Rows)
-            {
-                if (row.RowType == DataControlRowType.DataRow)
-                {
-                    string id = row.Cells[0].Text;
-                    string name = row.Cells[1].Text;
-
-                    list_product.Add(new ListItem(name, id));
-                }
-            }
-            return list_product;
-        }
-
     }
 }

@@ -13,11 +13,12 @@ namespace WebApplication1
     public partial class WebForm3 : System.Web.UI.Page
     {
 
-      readonly Connectionclass co=new Connectionclass();
+        readonly Connectionclass co = new Connectionclass();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 Binddata();
             }
@@ -27,14 +28,17 @@ namespace WebApplication1
         {
             try
             {
-                co.Connectionopen();
-              
-                string str = "select top 15 CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,EmailAddress from Dimcustomer";
-                
 
-                object d = co.Showdata(str);
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "SP_GridSort";
+
+                command.Parameters.AddWithValue("@topno", 15);
+          
+                SqlDataAdapter adr = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
-                dt = (DataTable)d;
+                adr.Fill(dt);
                 ViewState["table"] = dt;
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
@@ -44,28 +48,28 @@ namespace WebApplication1
 
         }
 
-      #pragma warning disable IDE0060 // Remove unused parameter 'direction' if it is not part of a shipped public API
+#pragma warning disable IDE0060 // Remove unused parameter 'direction' if it is not part of a shipped public API
         public SortDirection CurrentSortDirection
         {
-            
-                get
+
+            get
             {
-                    if (ViewState["sortdirection"] == null)
-                    {
-                        ViewState["sortdirection"] = SortDirection.Ascending;
-
-                    }
-
-                    return (SortDirection)ViewState["sortdirection"];
-
-
+                if (ViewState["sortdirection"] == null)
+                {
+                    ViewState["sortdirection"] = SortDirection.Ascending;
 
                 }
-                set
+
+                return (SortDirection)ViewState["sortdirection"];
+
+
+
+            }
+            set
             {
-                    ViewState["sortdirectoin"] = value;
-                }
-           
+                ViewState["sortdirectoin"] = value;
+            }
+
 
         }
 
@@ -95,7 +99,7 @@ namespace WebApplication1
             finally { }
         }
 
-        public void Sortgrid(string sortexpression,string direction)
+        public void Sortgrid(string sortexpression, string direction)
         {
             try
             {
@@ -111,9 +115,9 @@ namespace WebApplication1
                 GridView1.DataSource = dv;
                 GridView1.DataBind();
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
             finally { }
-        
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

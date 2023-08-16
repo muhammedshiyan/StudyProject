@@ -1,29 +1,29 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
 
 
- 
+
 
 <!DOCTYPE html>
 
- 
+
 
 <html>
 <head runat="server">
-<title></title>
-<asp:ContentPlaceHolder ID="head" runat="server">
-</asp:ContentPlaceHolder>
-<style type="text/css">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
         .auto-style1 {
             margin-left: 219px;
         }
 
- 
+
 
         .panel-container {
             display: flex;
         }
 
- 
+
 
         .panel {
             float: left;
@@ -31,14 +31,14 @@
             margin-right: 10px;
         }
 
- 
+
 
         .menu {
             height: 96vh;
             padding: 10px;
         }
 
- 
+
 
             .menu li {
                 position: relative;
@@ -49,44 +49,62 @@
                 border-radius: 0 0 5px 0;
             }
 
- 
+
 
                 .menu li:hover {
                     box-shadow: 4px 8px 9px 0px #b5b5b5;
                 }
 
- 
+
 
         .active {
             box-shadow: 4px 8px 9px 0px #b5b5b5;
         }
-</style>
+    </style>
 </head>
 <body>
-<form id="form1" runat="server">
-<div class="panel-container">
-</div>
-<asp:Panel ID="Panel1" runat="server" HorizontalAlign="Left" CssClass="panel menu">
+    <form id="form1" runat="server">
+        <div class="panel-container">
+        </div>
+        <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Left" CssClass="panel menu">
 
 
-<asp:Menu runat="server">
-<Items>
-    <asp:MenuItem NavigateUrl="~/gridsorting.aspx" Text="gridsorting" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/gridpaging.aspx" Text="gridpaging" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/Dropdown.aspx" Text="Dropdown" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/daatareaderdataset.aspx" Text="datareaderdataset" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/manualpaging.aspx" Text="manualpaging" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/manualsorting.aspx" Text="manualsorting" Selectable="true"></asp:MenuItem>
-    <asp:MenuItem NavigateUrl="~/validation.aspx" Text="summary validation" Selectable="true"></asp:MenuItem>
-     <asp:MenuItem NavigateUrl="~/drop.aspx" Text="drop" Selectable="true"></asp:MenuItem>
-     <asp:MenuItem NavigateUrl="~/showpassword.aspx" Text="showpassword" Selectable="true"></asp:MenuItem>
-     <asp:MenuItem NavigateUrl="~/highlightmouseover.aspx" Text="highlight the row when mouse over" Selectable="true"></asp:MenuItem>
-      <asp:MenuItem NavigateUrl="~/Gridsearch.aspx" Text="Gridsearch" Selectable="true"></asp:MenuItem>
-     <asp:MenuItem NavigateUrl="~/filldropdownbypagemethode.aspx" Text="filldropdownbypagemethode" Selectable="true"></asp:MenuItem>
-     <asp:MenuItem NavigateUrl="~/webmethod.aspx" Text="webmethod" Selectable="true"></asp:MenuItem>
+            <asp:Menu runat="server">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/gridsorting.aspx" Text="gridsorting" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/gridpaging.aspx" Text="gridpaging" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Dropdown.aspx" Text="Dropdown" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/datareaderdataset.aspx" Text="datareaderdataset" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/manualpaging.aspx" Text="manualpaging" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/manualsorting.aspx" Text="manualsorting" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/validation.aspx" Text="summary validation" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/showpassword.aspx" Text="showpassword" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/highlightmouseover.aspx" Text="highlight the row when mouse over" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/Gridsearch.aspx" Text="Gridsearch" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/pagemethode.aspx" Text="pagemethode" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/webmethod.aspx" Text="webmethod" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/dynamic table.aspx" Text="Dynamic Table" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/phone and year validation.aspx" Text="Phone And Year Validation" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/jquery validation.aspx" Text="jquery Validation" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/dynamicjs.aspx" Text="dynamictable using js" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/htmltablecreation.aspx" Text="htmltablecreation" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/pagemethodetrain.aspx" Text="pagemethodetrain" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/updatepanel.aspx" Text="updatepanel" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/autocompletetextbox.aspx" Text="AutoCompleteTextBox" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/iframe.aspx" Text="dynamic iframe" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/raisecallbacktrain.aspx" Text="raise CallBack" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/datatabletojson.aspx" Text="DataTableToJson" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/popupwindow.aspx" Text="PopUpWindow" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/jsonserialiseanddeserialise.aspx" Text="JsonSerialiseAndDeserialise" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/readingandwritingxml.aspx" Text="ReadingAndWritingXML" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/xmlserialdeserial.aspx" Text="XML Serialisation And Deserialisation" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/addreference.aspx" Text="Add Reference" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/webserviceaddreference.aspx" Text=" Weservice Add Reference" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/WebForm5.aspx" Text=" usercontrol" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/cookie.aspx" Text=" cookie" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/errorlogfile.aspx" Text=" TextFileExceptionWrite" Selectable="true"></asp:MenuItem>
+                    <asp:MenuItem NavigateUrl="~/querystring.aspx" Text=" QueryString" Selectable="true"></asp:MenuItem>
 
-   
-   
 
 
 
@@ -98,14 +116,18 @@
 
 
 
-</Items>
-<StaticSelectedStyle CssClass="active" />
-</asp:Menu>
-</asp:Panel>
-<asp:Panel ID="Panel2" runat="server" HorizontalAlign="Left" CssClass="panel" Height="197px" Width="384px">
-<asp:ContentPlaceHolder ID="MainContent" runat="server">
-</asp:ContentPlaceHolder>
-</asp:Panel>
-</form>
+
+
+
+
+                </Items>
+                <StaticSelectedStyle CssClass="active" />
+            </asp:Menu>
+        </asp:Panel>
+        <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Left" CssClass="panel" Height="314px" Width="500px">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </asp:Panel>
+    </form>
 </body>
 </html>

@@ -1,0 +1,6 @@
+D:\StudyProject\ClassLibrary4\bin\Debug\ClassLibrary4.dll
+D:\StudyProject\ClassLibrary4\bin\Debug\ClassLibrary4.pdb
+D:\StudyProject\ClassLibrary4\obj\Debug\ClassLibrary4.csproj.AssemblyReference.cache
+D:\StudyProject\ClassLibrary4\obj\Debug\ClassLibrary4.csproj.CoreCompileInputs.cache
+D:\StudyProject\ClassLibrary4\obj\Debug\ClassLibrary4.dll
+D:\StudyProject\ClassLibrary4\obj\Debug\ClassLibrary4.pdb

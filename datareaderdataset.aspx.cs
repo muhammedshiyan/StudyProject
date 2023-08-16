@@ -29,25 +29,32 @@ namespace WebApplication1
         protected void Bindcountry()
         {
 
+            try
+            {
+                co.Connectionopen();
 
-            co.Connectionopen();
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_SelectCountry";
 
-            string str = "select * from country";
+                SqlDataReader rdr = command.ExecuteReader();
+                int i = 0;
+                while (rdr.Read())
+                {
+                    //ddlcountry.Items.Add(rdr.GetValue(2).ToString());
+                    ddlcountry.Items.Insert(i, new ListItem(rdr.GetValue(2).ToString(), rdr.GetValue(1).ToString()));
+                    i++;
 
-            SqlDataReader rdr = co.GetDataReader(str);
-                
+                }
 
-            while(rdr.Read())
-            { 
-            ddlcountry.Items.Add(rdr.GetValue(0).ToString());
-            
-            
+                ddlcountry.Items.Insert(0, new ListItem("---selectone-----", "0"));
+                ddlstate.Items.Insert(0, new ListItem("---selectone----", "0"));
+                ddldistrict.Items.Insert(0, new ListItem("---selectone----", "0"));
             }
-            
-            
-            ddlcountry.Items.Insert(0, new ListItem("---selectone-----", "0"));
-            ddlstate.Items.Insert(0, new ListItem("---selectone----", "0"));
-            ddldistrict.Items.Insert(0, new ListItem("---selectone----", "0"));
+            catch (Exception ex) { }
+            finally { }
+           
 
 
 
@@ -56,43 +63,38 @@ namespace WebApplication1
 
         protected void Ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try {
+                int countyid = Convert.ToInt32(ddlcountry.SelectedValue);
+
+                co.Connectionopen();
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_Selectstate";
+                command.Parameters.AddWithValue("@countryid", countyid);
+
+                SqlDataReader rdr = command.ExecuteReader();
+                int i = 1;
+                while (rdr.Read())
+                {
+
+                    ddlstate.Items.Insert(i, new ListItem(rdr.GetValue(2).ToString(), rdr.GetValue(1).ToString()));
+                    i++;
+
+                }
 
 
-            co.Connectionopen();
-            int cid = Convert.ToInt32(ddlcountry.SelectedValue);
+                if (ddlstate.SelectedIndex == 0)
+                {
+                    ddldistrict.Items.Clear();
+                    ddldistrict.Items.Insert(0, new ListItem("---select one--", "0"));
 
-
-            string str = "select * from state where countryID='" + cid + "'";
-
-            SqlDataReader rdr = co.GetDataReader(str);
-            int i = 1;
-            ddlstate.Items.Clear();
-            ddlstate.Items.Insert(0, new ListItem("---selectone----", "0"));
-
-            while (rdr.Read())
-            {
-
-                ddlstate.Items.Insert(i, new ListItem(rdr.GetValue(0).ToString(), rdr["stateID"].ToString()));
-
-
-                i++;
-
-
+                }
             }
-            //while (rdr.Read())
-            //{
+            catch(Exception ex) { } 
+            finally { }
 
-            //    ddlstate.Items.Add(rdr.GetValue(1).ToString());
-
-            //}
-
- 
-            if (ddlstate.SelectedIndex == 0)
-            {
-                ddldistrict.Items.Clear();
-                ddldistrict.Items.Insert(0, new ListItem("---select one--", "0"));
-
-            }
 
 
 
@@ -101,44 +103,39 @@ namespace WebApplication1
         }
         protected void Ddlstate_SelectedIndexChanged(object sender, EventArgs e)
         {
-;
-            co.Connectionopen();
-            int sid = Convert.ToInt32(ddlstate.SelectedValue);
+            try {
+                int stateid = Convert.ToInt32(ddlstate.SelectedValue);
 
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_SelectDistrict";
+                command.Parameters.AddWithValue("@stateid", stateid);
 
-            string str = "select * from district where stateid='" + sid + "'";
-
-
-
-            SqlDataReader rdr = co.GetDataReader(str);
-            int i = 1;
-            ddlstate.Items.Clear();
-            ddlstate.Items.Insert(0, new ListItem("---selectone----", "0"));
-
-            while (rdr.Read())
-            {
-
-                ddlstate.Items.Insert(i, new ListItem(rdr.GetValue(0).ToString(), rdr["stateID"].ToString()));
-
-
-                i++;
-
-
-            }
-            //while (rdr.Read())
-            //{
-
-            //    ddlstate.Items.Add(rdr.GetValue(1).ToString());
-
-            //}
-
-            ddldistrict.Items.Insert(0, new ListItem("---select---", "0"));
-            if (ddlstate.SelectedIndex == 0)
-            {
+                SqlDataReader rdr = command.ExecuteReader();
+                int i = 0;
                 ddldistrict.Items.Clear();
-                ddldistrict.Items.Insert(0, new ListItem("---select one--", "0"));
+                while (rdr.Read())
+                {
 
+                    ddldistrict.Items.Insert(i, new ListItem(rdr.GetValue(2).ToString(), rdr.GetValue(1).ToString()));
+                    i++;
+
+                }
+
+
+                ddldistrict.Items.Insert(0, new ListItem("---select---", "0"));
+                if (ddlstate.SelectedIndex == 0)
+                {
+                    ddldistrict.Items.Clear();
+                    ddldistrict.Items.Insert(0, new ListItem("---select one--", "0"));
+
+                }
             }
+            catch (Exception ex) { }    
+            finally { } 
+
+            
 
         }
 

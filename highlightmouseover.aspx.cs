@@ -21,11 +21,17 @@ namespace WebApplication1
 
         public void Binddata()
         {
-            co.Connectionopen();
-            string str = "select TOP 12 ResellerKey,GeographyKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
+            try
+            {
+                co.Connectionopen();
+                string str = "select TOP 12 ResellerKey,GeographyKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
 
-            GridView1.DataSource = co.Showdata(str);
-            GridView1.DataBind();
+                GridView1.DataSource = co.Showdata(str);
+                GridView1.DataBind();
+            }
+            catch(Exception ex) { }
+            finally { }
+           
 
 
 
@@ -34,17 +40,23 @@ namespace WebApplication1
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == System.Web.UI.WebControls.DataControlRowType.DataRow)
+
+            try
             {
+                if (e.Row.RowType == System.Web.UI.WebControls.DataControlRowType.DataRow)
+                {
 
 
-                e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#FF1493'");
+                    e.Row.Attributes.Add("onmouseover", "this.originalstyle=this.style.backgroundColor;this.style.backgroundColor='#FF1493'");
 
 
-                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
+                    e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalstyle;");
+                }
 
 
             }
+            catch(Exception ex) { }
+            finally { } 
         }
     }
 }

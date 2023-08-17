@@ -22,8 +22,10 @@ namespace WebApplication1
 
             try
             {
-                string filepath = HttpContext.Current.Server.MapPath("~/ExceptionDetailsFile/");  
+                  string filepath = HttpContext.Current.Server.MapPath("~/ExceptionDetailsFile/");
 
+                // string filepath = HttpContext.Current.Server.MapPath("D:\\StudyProject\\ExceptionDetailsFile\\02-08-23.txt");
+                
                 if (!Directory.Exists(filepath))
                 {
                     Directory.CreateDirectory(filepath);
@@ -40,12 +42,19 @@ namespace WebApplication1
                 using (StreamWriter sw = File.AppendText(filepath))
                 {
                     error = "Log Written Date:" + " " + DateTime.Now.ToString() + line + "Error Line No :" + " " + ErrorlineNo + line + "Error Message:" + " " + Errormsg + line + "Exception Type:" + " " + extype + line + "Error Location :" + " " + ErrorLocation + line + " Error Page Url:" + " " + exurl + line + "User Host IP:" + " " + hostIp + line;
+
                     sw.WriteLine("-----------Exception Details on " + " " + DateTime.Now.ToString() + "-----------------");
+
+
+                    sw.WriteLine(ex.StackTrace);
+                    
+                    sw.WriteLine(" Exception Details on  ");
                     sw.WriteLine("------------------------------");
                     sw.WriteLine(line);
                     sw.WriteLine(error);
                     sw.WriteLine("------*End*--------");
                     sw.WriteLine(line);
+                    sw.WriteLine("                                                                                                                                                                                           ");
                     sw.Flush();
                     sw.Close();
 

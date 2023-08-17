@@ -21,24 +21,30 @@ namespace WebApplication1
         
         public  List<string> GetEmpNames(string empName)
         {
-
             List<string> Emp = new List<string>();
-            co.Connectionopen();
-
-            SqlCommand command = new SqlCommand();
-            command.Connection = co.Connectionopen();
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.CommandText = "sp_Autocomplete";
-            command.Parameters.AddWithValue("@topno", 20);
-            command.Parameters.AddWithValue("@text", empName);
-
-
-            SqlDataReader rdr = command.ExecuteReader();
-
-            while (rdr.Read())
+            try
             {
-                Emp.Add(rdr.GetString(0));
+               
+                co.Connectionopen();
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_Autocomplete";
+                command.Parameters.AddWithValue("@topno", 20);
+                command.Parameters.AddWithValue("@text", empName);
+
+
+                SqlDataReader rdr = command.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Emp.Add(rdr.GetString(0));
+                }
             }
+            catch(Exception ex) { }
+            finally { }
+
 
             return Emp;
         }

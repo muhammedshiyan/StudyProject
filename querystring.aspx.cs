@@ -30,15 +30,17 @@ namespace WebApplication1
                     S += ("Key: " + key + ", Value: " + queryParameters[key]);
                 }
                 Label4.Text = S;
+                
+             
             }
             catch (Exception ex) { }
             finally { }
              
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
 
+        public void Show()
+        {
             try
             {
                 Response.Redirect("querystring.aspx?firstname=" + TextBox1.Text + "&lastname=" + TextBox2.Text);
@@ -80,9 +82,20 @@ namespace WebApplication1
 
                 Label5.Text = S;
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
             }
             finally { }
+
+        }
+
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Show();
+
+
 
         }
     }

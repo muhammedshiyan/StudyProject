@@ -124,7 +124,7 @@
                 <StaticSelectedStyle CssClass="active" />
             </asp:Menu>
         </asp:Panel>
-        <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Left" CssClass="panel" Height="314px" Width="500px">
+        <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Left" CssClass="panel" Height="470px" Width="993px">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </asp:Panel>

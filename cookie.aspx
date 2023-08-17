@@ -31,4 +31,15 @@
     <asp:Button ID="Button3" runat="server" Text="delete" OnClick="Button3_Click" />
 
 
+
+     <asp:Button ID="Button4" runat="server" Text="session add" OnClick="Button4_Click" />    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+
+    <asp:Button ID="Button5" runat="server" Text="cookie data" OnClick="Button5_Click" /><br /><br />
+
+
+     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label><br /><br />
+
+
+
+
 </asp:Content>

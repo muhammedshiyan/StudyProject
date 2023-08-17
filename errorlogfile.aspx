@@ -16,7 +16,7 @@
    
     <h5>CURRENT ERROR</h5>
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label><br /><br />
-
+    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label><br /><br />
     <h5>PREVIOUS ERROR</h5>
      <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 

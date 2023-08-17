@@ -1,0 +1,24 @@
+-----------Exception Details on  07-08-2023 18:05:33-----------------
+------------------------------
+
+
+
+Log Written Date: 07-08-2023 18:05:33
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+

@@ -110,6 +110,7 @@
     <Content Include="autocomplete.asmx" />
     <Content Include="autocompletetextbox.asmx" />
     <Content Include="autocompletetextbox.aspx" />
+    <Content Include="xmlwebform.aspx" />
     <None Include="Connected Services\ServiceReferencedata1\WebService1.disco" />
     <None Include="Connected Services\ServiceReferencedata1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReferencedata1\configuration.svcinfo" />
@@ -201,9 +202,11 @@
     <Content Include="gridsorting.aspx" />
     <Content Include="datareaderdataset.aspx" />
     <Content Include="Dropdown.aspx" />
+    <Content Include="sql.aspx" />
     <Content Include="updatepanel.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm5.aspx" />
+    <Content Include="WebForm7.aspx" />
     <Content Include="webmethod.aspx" />
     <Content Include="Webmethod1.asmx" />
     <Content Include="webmethodtrain.aspx" />
@@ -213,6 +216,7 @@
     <Content Include="webtest.aspx" />
     <Content Include="WebUserControltrain.ascx" />
     <Content Include="XMLFile1.xml" />
+    <Content Include="XMLFile2.xml" />
     <Content Include="xmlserialdeserial.aspx" />
     <None Include="Connected Services\ServiceReferencedata1\WebService1.wsdl" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -504,6 +508,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="sql.aspx.cs">
+      <DependentUpon>sql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sql.aspx.designer.cs">
+      <DependentUpon>sql.aspx</DependentUpon>
+    </Compile>
     <Compile Include="summary validation.aspx.cs">
       <DependentUpon>summary validation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -574,6 +585,13 @@
     <Compile Include="WebForm5.aspx.designer.cs">
       <DependentUpon>WebForm5.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm7.aspx.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm7.aspx.designer.cs">
+      <DependentUpon>WebForm7.aspx</DependentUpon>
+    </Compile>
     <Compile Include="webmethod.aspx.cs">
       <DependentUpon>webmethod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -630,6 +648,13 @@
     </Compile>
     <Compile Include="xmlserialdeserial.aspx.designer.cs">
       <DependentUpon>xmlserialdeserial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="xmlwebform.aspx.cs">
+      <DependentUpon>xmlwebform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="xmlwebform.aspx.designer.cs">
+      <DependentUpon>xmlwebform.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

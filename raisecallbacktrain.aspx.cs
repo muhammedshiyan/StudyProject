@@ -13,26 +13,30 @@ namespace WebApplication1
 
         public string _callbackresult =null;
 
-        //protected void Page_PreRender(object sender, EventArgs e)
-        //{
-        //    string cref = Page.ClientScript.GetCallbackEventReference(this, "arg", "Getnumberserver", "context");
-        //    string cscript = "function UseCallback(arg, context) { " + cref + "; }";
-        //    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UseCallback", cscript, true);
-        //}
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            string cref = Page.ClientScript.GetCallbackEventReference(this, "arg", "Getnumberserver", "context");
-            string cscript = "function UseCallback (arg,context)" + "{" + cref + ";" + "}";
-            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UseCallback", cscript, true);
+            try
+            {
+                string cref = Page.ClientScript.GetCallbackEventReference(this, "arg", "Getnumberserver", "context");
+                string cscript = "function UseCallback (arg,context)" + "{" + cref + ";" + "}";
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "UseCallback", cscript, true);
+            }
+            catch(Exception ex) { }
+            finally { }
+           
         }
 
 
         public void RaiseCallbackEvent(string eventarg)
         {
-
-            Random r = new Random();
-            _callbackresult = r.Next().ToString();
+            try
+            {
+                Random r = new Random();
+                _callbackresult = r.Next().ToString();
+            }
+            catch(Exception ex) { }
+            finally { }
+           
           
         }
         public string GetCallbackResult()

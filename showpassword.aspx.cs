@@ -13,19 +13,24 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                TextBox1.TextMode = TextBoxMode.Password;
+                if (!IsPostBack)
+                {
+                    TextBox1.TextMode = TextBoxMode.Password;
 
-                //ViewState["text"] = "";
+                    //ViewState["text"] = "";
+                }
+
+                //string str = ViewState["text"].ToString();
+                //TextBox1.Text = str;
             }
-
-            //string str = ViewState["text"].ToString();
-            //TextBox1.Text = str;
-
+            catch (Exception ex) { }
+            finally { }
 
 
-        }
+
+            }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -38,19 +43,25 @@ namespace WebApplication1
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            if (TextBox1.TextMode == TextBoxMode.Password)
-            {
-                TextBox1.TextMode = TextBoxMode.SingleLine;
-                TextBox1.Text = ViewState["text"].ToString();
+            try {
+                if (TextBox1.TextMode == TextBoxMode.Password)
+                {
+                    TextBox1.TextMode = TextBoxMode.SingleLine;
+                    TextBox1.Text = ViewState["text"].ToString();
 
 
+                }
+                else if (TextBox1.TextMode == TextBoxMode.SingleLine)
+                {
+
+                    TextBox1.TextMode = TextBoxMode.Password;
+                    TextBox1.Text = ViewState["text"].ToString();
+                }
             }
-            else if (TextBox1.TextMode == TextBoxMode.SingleLine)
-            {
+            catch(Exception ex) { }
+            finally { }
 
-                TextBox1.TextMode = TextBoxMode.Password;
-                TextBox1.Text = ViewState["text"].ToString();
-            }
+            
 
 
         }

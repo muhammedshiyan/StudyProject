@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<employees>
+<employee>
+	<id>1</id>
+	<name>John Doe</name>
+	<age>30</age>
+	<department>Engineering</department>
+	<salary>60000</salary>
+	<hire_date>2023-08-01</hire_date>
+	<is_manager>false</is_manager>
+</employee>
+<employee>
+	<id>2</id>
+	<name>Jane Smith</name>
+	<age>25</age>
+	<department>Marketing</department>
+	<salary>45000</salary>
+	<hire_date>2023-08-01</hire_date>
+	<is_manager>false</is_manager>
+</employee>
+<employee>
+	<id>3</id>
+	<name>Michael Johnson</name>
+	<age>40</age>
+	<department>Finance</department>
+	<salary>75000</salary>
+	<hire_date>2023-08-02</hire_date>
+	<is_manager>true</is_manager>
+</employee>
+<employee>
+	<id>4</id>
+	<name>Susan Lee</name>
+	<age>28</age>
+	<department>Human Resources</department>
+	<salary>50000</salary>
+	<hire_date>2023-08-03</hire_date>
+	<is_manager>false</is_manager>
+</employee>
+<employee>
+	<id>5</id>
+	<name>Robert Brown</name>
+	<age>32</age>
+	<department>Operations</department>
+	<salary>65000</salary>
+	<hire_date>2023-08-03</hire_date>
+	<is_manager>false</is_manager>
+</employee>
+<employee>
+	<id>6</id>
+	<name>Linda Williams</name>
+	<age>38</age>
+	<department>Sales</department>
+	<salary>70000</salary>
+	<hire_date>2023-08-04</hire_date>
+	<is_manager>true</is_manager>
+</employee>
+</employees>

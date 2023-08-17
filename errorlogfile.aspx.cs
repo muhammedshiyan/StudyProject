@@ -22,7 +22,7 @@ namespace WebApplication1
             string filepath = string.Empty;
             try
             {
-              
+
 
                 string[] s = new string[2];
                 s[10] = "6";
@@ -33,24 +33,30 @@ namespace WebApplication1
             {
 
 
-                Label1.Text= except.SendErrorToText(ex);
+                Label1.Text = except.SendErrorToText(ex);
+                 Label3.Text= ex.StackTrace;
 
-               
+                
+
+          
+
 
             }
+
             finally {
             }
-            
+
 
         }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             string filepath = string.Empty;
 
             try
             {
-                filepath = @"D:\\StudyProject\\ExceptionDetailsFile\\02-08-23.txt";
+                //  filepath = @"D:\\StudyProject\\ExceptionDetailsFile\\02-08-23.txt";
+                  filepath = @"D:\StudyProject\\ExceptionDetailsFile\"+ DateTime.Today.ToString("dd-MM-yy")+".txt";
+               // filepath = @"D:\StudyProject\ExceptionDetailsFile\09-08-23.txt";
                 StreamReader sr = new StreamReader(filepath);
                 string line = string.Empty;
 
@@ -59,7 +65,7 @@ namespace WebApplication1
 
                 foreach (string l in lines)
                 {
-                    line += l;
+                    line += l+"\n";
 
                 }
                 Label2.Text = line;

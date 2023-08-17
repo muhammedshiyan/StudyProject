@@ -18,16 +18,20 @@ namespace WebApplication1
         protected void btnStart_Click(object sender, EventArgs e)
         {
 
+            try {
+                Func<string> taskA = new Func<string>(TaskA);
+                Func<string> taskB = new Func<string>(TaskB);
 
+
+                Action<string> onTaskComplete = new Action<string>(OnTaskComplete);
+
+
+                RaceCallback(new Func<string>[] { taskA, taskB }, onTaskComplete);
+            }
+            catch (Exception ex) { }
+            finally { }
           
-            Func<string> taskA = new Func<string>(TaskA);
-            Func<string> taskB = new Func<string>(TaskB);
-
-          
-            Action<string> onTaskComplete = new Action<string>(OnTaskComplete);
-
             
-            RaceCallback(new Func<string>[] { taskA, taskB }, onTaskComplete);
 
         }
 

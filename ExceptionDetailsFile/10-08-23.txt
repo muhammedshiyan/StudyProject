@@ -1,0 +1,81 @@
+-----------Exception Details on  10-08-2023 09:30:12-----------------
+   at WebApplication1.errorlogfile.Button1_Click(Object sender, EventArgs e) in D:\StudyProject\errorlogfile.aspx.cs:line 30
+ Exception Details on  
+------------------------------
+
+
+
+Log Written Date: 10-08-2023 09:30:11
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+                                                                                                                                                                                           
+-----------Exception Details on  10-08-2023 09:30:25-----------------
+   at WebApplication1.errorlogfile.Button1_Click(Object sender, EventArgs e) in D:\StudyProject\errorlogfile.aspx.cs:line 30
+ Exception Details on  
+------------------------------
+
+
+
+Log Written Date: 10-08-2023 09:30:25
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+                                                                                                                                                                                           
+-----------Exception Details on  10-08-2023 13:41:24-----------------
+   at WebApplication1.errorlogfile.Button1_Click(Object sender, EventArgs e) in D:\StudyProject\errorlogfile.aspx.cs:line 30
+ Exception Details on  
+------------------------------
+
+
+
+Log Written Date: 10-08-2023 13:41:24
+
+Error Line No : line 30
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Index was outside the bounds of the array.
+
+ Error Page Url: https://localhost:44321/errorlogfile
+
+User Host IP: 
+
+
+------*End*--------
+
+
+
+                                                                                                                                                                                           

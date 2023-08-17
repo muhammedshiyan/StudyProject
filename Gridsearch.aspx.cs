@@ -22,27 +22,32 @@ namespace WebApplication1
         }
 
         public void Binddata()
-        {   
-            
-            co.Connectionopen();
-           // string str = "select TOP 12 ResellerKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
+        {
+            try
+            {
+                co.Connectionopen();
+                // string str = "select TOP 12 ResellerKey,Phone,BusinessType,ResellerName,FirstOrderYear,LastOrderYear,ProductLine,AddressLine1 from DimReseller";
 
 
-            SqlCommand command = new SqlCommand();
-            command.Connection = co.Connectionopen();
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.CommandText = "sp_GridSearch";
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_GridSearch";
 
-            command.Parameters.AddWithValue("@top", 15);
-         
+                command.Parameters.AddWithValue("@top", 15);
 
 
-            SqlDataAdapter adr = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            adr.Fill(dt);
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();   
+                SqlDataAdapter adr = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adr.Fill(dt);
+
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            catch(Exception ex) { }
+            finally { }
+           
 
 
         }
@@ -51,21 +56,26 @@ namespace WebApplication1
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandText = "sp_GridSearchLike";
 
-            SqlCommand command = new SqlCommand();
-            command.Connection = co.Connectionopen();
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.CommandText = "sp_GridSearchLike";
+                command.Parameters.AddWithValue("@top", 15);
+                command.Parameters.AddWithValue("@textchange", TextBox1.Text);
 
-            command.Parameters.AddWithValue("@top", 15);
-            command.Parameters.AddWithValue("@textchange", TextBox1.Text);
+                SqlDataAdapter adr = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adr.Fill(dt);
 
-            SqlDataAdapter adr = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            adr.Fill(dt);
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            catch(Exception ex) { }
+            finally { }
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
 
         }
     }

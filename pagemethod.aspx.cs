@@ -18,21 +18,27 @@ namespace WebApplication1
     
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = co.Connectionopen();
-            command.CommandText = "sp_pagemethod1";
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@topno", 20);
+            try
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = co.Connectionopen();
+                command.CommandText = "sp_pagemethod1";
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@topno", 20);
 
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
 
 
-            if (Request.Form["DropListName"] != null)
-               lblSubmitValue.Text = String.Format("Submitted Value: \"{0}\"",
-               Request.Form["DropListName"]);
+                if (Request.Form["DropListName"] != null)
+                    lblSubmitValue.Text = String.Format("Submitted Value: \"{0}\"",
+                    Request.Form["DropListName"]);
+            }
+            catch(Exception ex) { }
+            finally { }
+           
         }
         public class ListData
         {
@@ -44,22 +50,24 @@ namespace WebApplication1
         public static IEnumerable<ListData> GetListData(int arg)
         {
             List<ListData> list = new List<ListData>();
-
-
-            foreach (DataRow row in dt.Rows)
+            try
             {
-
-                string text = row["STATENAME"].ToString();
-                int value = Convert.ToInt32(row["STATEID"]);
-
-                list.Add(new ListData()
+                foreach (DataRow row in dt.Rows)
                 {
-                    text = text,
-                    value = value
-                });
+
+                    string text = row["STATENAME"].ToString();
+                    int value = Convert.ToInt32(row["STATEID"]);
+
+                    list.Add(new ListData()
+                    {
+                        text = text,
+                        value = value
+                    });
+                }
             }
-
-
+            catch (Exception ex) { }
+            finally { }
+         
             return list;
         }
     }

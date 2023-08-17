@@ -53,42 +53,53 @@ namespace WebApplication1
 
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
-
-            DataTable dt = (DataTable)ViewState["datatable"];
-            if (dt != null)
+            try
             {
+                DataTable dt = (DataTable)ViewState["datatable"];
+                if (dt != null)
+                {
 
 
-                dt.DefaultView.Sort = e.SortExpression + " " + Direction(e.SortExpression);
-                GridView1.DataSource = dt.DefaultView;
-                ViewState["datatable"] = dt;
-                GridView1.DataBind();
+                    dt.DefaultView.Sort = e.SortExpression + " " + Direction(e.SortExpression);
+                    GridView1.DataSource = dt.DefaultView;
+                    ViewState["datatable"] = dt;
+                    GridView1.DataBind();
+                }
             }
+            catch(Exception ex) { }
+            finally { }
+           
 
 
         }
 
         public string Direction(string column)
         {
-            string sortdirection = "ASC";
-            string lastdirection = "";
-            string sortexpression = ViewState["sortexpression"] as string;
-
-
-
-            if (sortexpression != null)
+            string sortdirection = string.Empty;
+            try
             {
-                if (sortexpression == column)
+                sortdirection = "ASC";
+                string lastdirection = "";
+                string sortexpression = ViewState["sortexpression"] as string;
+
+
+
+                if (sortexpression != null)
                 {
-                    lastdirection = ViewState["sortdirection"] as string;
-                    if ((lastdirection != null) && (lastdirection == "ASC"))
+                    if (sortexpression == column)
                     {
-                        sortdirection = "DESC";
+                        lastdirection = ViewState["sortdirection"] as string;
+                        if ((lastdirection != null) && (lastdirection == "ASC"))
+                        {
+                            sortdirection = "DESC";
+                        }
                     }
                 }
+                ViewState["sortdirection"] = sortdirection;
+                ViewState["sortexpression"] = column;
             }
-            ViewState["sortdirection"] = sortdirection;
-            ViewState["sortexpression"] = column;
+            catch(Exception ex) { } 
+            finally { }
 
 
             return sortdirection;

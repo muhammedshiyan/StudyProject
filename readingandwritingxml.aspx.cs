@@ -27,19 +27,24 @@ namespace WebApplication1
         public void ShowXmlData()
         {
             DataSet ds = new DataSet();
-
-              
-           
-                ds.ReadXml(Server.MapPath("~/XMLFile1.xml"));
-           
-
-            if (ds.Tables.Count > 0)
+            try
             {
-                GridView1.DataSource = ds.Tables[0];
-                GridView1.DataBind();
+                ds.ReadXml(Server.MapPath("~/XMLFile1.xml"));
 
+
+                if (ds.Tables.Count > 0)
+                {
+                    GridView1.DataSource = ds.Tables[0];
+                    GridView1.DataBind();
+
+
+                }
 
             }
+            catch(Exception ex) { }
+            finally { }
+
+
 
 
 
@@ -47,37 +52,46 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(Server.MapPath("XMLFile1.xml"));
-            
-            XmlElement parent = xmlDoc.CreateElement("UserData");
 
-            XmlElement name = xmlDoc.CreateElement("name");
-            name.InnerText = TextBox1.Text;
+            try
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(Server.MapPath("XMLFile1.xml"));
 
-            XmlElement age = xmlDoc.CreateElement("age");
-            age.InnerText = TextBox2.Text;
+                XmlElement parent = xmlDoc.CreateElement("UserData");
 
-            XmlElement place = xmlDoc.CreateElement("place");
-            place.InnerText = TextBox3.Text;
+                XmlElement name = xmlDoc.CreateElement("name");
+                name.InnerText = TextBox1.Text;
+
+                XmlElement age = xmlDoc.CreateElement("age");
+                age.InnerText = TextBox2.Text;
+
+                XmlElement place = xmlDoc.CreateElement("place");
+                place.InnerText = TextBox3.Text;
 
 
-            XmlElement time = xmlDoc.CreateElement("time");
-            time.InnerText = DateTime.Now.ToString();
+                XmlElement time = xmlDoc.CreateElement("time");
+                time.InnerText = DateTime.Now.ToString();
 
-            parent.AppendChild(name);
-            parent.AppendChild(age);
-            parent.AppendChild(place);
-            parent.AppendChild(time);
+                parent.AppendChild(name);
+                parent.AppendChild(age);
+                parent.AppendChild(place);
+                parent.AppendChild(time);
 
-            xmlDoc.DocumentElement.AppendChild(parent);
+                xmlDoc.DocumentElement.AppendChild(parent);
 
-            xmlDoc.Save(Server.MapPath("XMLFile1.xml"));
-            ShowXmlData();
+                xmlDoc.Save(Server.MapPath("XMLFile1.xml"));
+                ShowXmlData();
 
-            TextBox1.Text = string.Empty;
-            TextBox2.Text = string.Empty;
-            TextBox3.Text = string.Empty;
+                TextBox1.Text = string.Empty;
+                TextBox2.Text = string.Empty;
+                TextBox3.Text = string.Empty;
+
+                ShowXmlData();
+            }
+            catch(Exception ex) { }
+            finally { }
+
 
 
 

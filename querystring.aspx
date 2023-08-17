@@ -8,7 +8,9 @@
     <asp:Label ID="Label2" runat="server" Text="Sname"></asp:Label> <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
     <asp:Button ID="Button1" runat="server" Text="btnstart" OnClick="Button1_Click" />
 
-    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label><br />
-    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label><br />
-    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label><br />
+    <h3> <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label><br /><br /></h3>
+   <h3> <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label><br /><br /></h3>
+    <h3><asp:Label ID="Label5" runat="server" Text="Label"></asp:Label><br /></h3>
+   
+    
 </asp:Content>

@@ -1,0 +1,162 @@
+﻿
+@page
+
+<head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+
+
+<div class="container">
+    <div class="row p-1">
+        <div class="col-1">User</div>
+        <div class="col-5"><input type="text" id="userInput" /></div>
+    </div>
+    <div class="row p-1">
+        <div class="col-1">Message</div>
+        <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6 text-end">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6">
+            <hr />
+        </div>
+    </div>
+    <div class="row p-1">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+
+@*<form>
+    <!-- Your other form fields -->
+    <div class="g-recaptcha" data-sitekey="6Lcria0nAAAAAJ_Z_cyZhZtsIxwisoSSOQMG-QS_"></div>
+   <button type="submit">Submit</button>
+</form>*@
+@*
+<html>
+<head>
+    <title>reCAPTCHA demo: Simple page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6Lcria0nAAAAAJ_Z_cyZhZtsIxwisoSSOQMG-QS_"></div>
+        <br />
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>*@
+
+
+
+
+
+
+
+
+
+@*<html>
+<head>
+    <title>reCAPTCHA demo: Simple page</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script type="text/javascript">
+        var onloadCallback = function () {
+            alert("grecaptcha is ready!");
+        };
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+
+</head>
+<body>
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6Lcria0nAAAAAJyrzIDZV9Qtwp-dvha-sBSzD8WZ"></div>
+        <br />
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+*@
+
+
+
+
+
+
+<html>
+<head>
+    <title>reCAPTCHA demo: Explicit render for multiple widgets</title>
+    <script type="text/javascript">
+        var verifyCallback = function (response) {
+            alert(response);
+        };
+        var widgetId1;
+        var widgetId2;
+        var onloadCallback = function () {
+            // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+            // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+            //widgetId1 = grecaptcha.render('example1', {
+            //    'sitekey': '6Lcria0nAAAAAJyrzIDZV9Qtwp-dvha-sBSzD8WZ',
+            //    'theme': 'light'
+            //});
+            //widgetId2 = grecaptcha.render(document.getElementById('example2'), {
+            //    'sitekey': '6Lcria0nAAAAAJyrzIDZV9Qtwp-dvha-sBSzD8WZ'
+            //});
+            grecaptcha.render('example3', {
+                'sitekey': '6Lcria0nAAAAAJyrzIDZV9Qtwp-dvha-sBSzD8WZ',
+                'callback': verifyCallback,
+                'theme': 'dark'
+            });
+
+        };
+    </script>
+</head>
+<body>
+    <!-- The g-recaptcha-response string displays in an alert message upon submit. -->
+   @* <form action="javascript:alert(grecaptcha.getResponse(widgetId1));">
+        <div id="example1"></div>
+        <br>
+        <input type="submit" value="getResponse">
+    </form>
+    <br>
+    <!-- Resets reCAPTCHA widgetId2 upon submit. -->
+    <form action="javascript:grecaptcha.reset(widgetId2);">
+        <div id="example2"></div>
+        <br>
+        <input type="submit" value="reset">
+    </form>*@
+    <br>
+    <!-- POSTs back to the page's URL upon submit with a g-recaptcha-response POST parameter. -->
+    <form action="?" method="POST">
+
+        <div id="example3"></div>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer>
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

@@ -14,7 +14,6 @@ namespace SignlRChat.Pages
 
 
 
-
         public void OnGet()
         {
 

@@ -1,0 +1,107 @@
+
+cREATE TABLE Customer 
+( CustomerId INT IDENTITY (1, 1) NOT NULL ,
+  FirstName NVARCHAR(50), LastName NVARCHAR(50))
+GO
+
+
+
+dROP TRIGGER dbo.AfterTriggerExample1
+
+
+alter  TRIGGER  AfterTriggerExample1
+ON Customer
+FOR INSERT, UPDATE, DELETE
+AS
+BEGIN
+     PRINT 'AFTER Trigger AfterTriggerExample1 executed!'
+	
+
+END
+
+
+
+alter TRIGGER  AfterTriggerExample2
+ON Customer
+FOR INSERT, UPDATE, DELETE
+AS
+BEGIN
+     PRINT 'AFTER Trigger AfterTriggerExample2 executed!'
+
+
+END
+
+
+alter  TRIGGER AfterTriggerExample3
+ON Customer
+FOR INSERT, UPDATE, DELETE
+AS
+BEGIN
+     PRINT 'AFTER Trigger AfterTriggerExample3 executed!'
+	 INSERT INTO dbo.Customer ( FirstName, LastName )
+VALUES('Basavaraj','Biradar')
+
+
+
+END
+
+INSERT INTO dbo.Customer ( FirstName, LastName )
+VALUES('Basavaraj','Biradar')
+
+truncate table  dbo.Customer;
+select * from dbo.Customer;
+
+
+
+
+CREATE TRIGGER OneMoreINSTEADOFTrigger1 
+ON Customer
+INSTEAD OF UPDATE
+AS
+BEGIN
+    PRINT 'Instead of trigger is Executed!'
+END
+
+
+
+
+SELECT  NumberEmployees,OrderFrequency,AnnualRevenue  from  DimReseller;
+
+select * from DimReseller;
+having max(AnnualRevenue)>100
+
+
+
+select COUNT(AnnualRevenue),ProductLine from DimReseller where AnnualRevenue>30000  group by ProductLine   order by COUNT(AnnualRevenue)  asc ;
+
+select max(DimProduct.EnglishDescription),avg(FactResellerSales.EmployeeKey) from DimProduct left join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey group by DimProduct.Color order by DimProduct.Color desc
+
+
+SELECT ProductKey,EnglishProductName FROM DimProduct where ProductKey>13   ORDER BY ProductKey  OFFSET 11  rows fetch next 10 ROWS only ;
+
+[dbo].[DimProduct]
+ProductKey
+
+select ProductKey,EnglishProductName from DimProduct
+
+select max(AnnualRevenue),ProductLine from DimReseller where AnnualRevenue>10000  group by ProductLine   order by COUNT(AnnualRevenue)  asc ;
+
+select min(AnnualRevenue),ProductLine from DimReseller where AnnualRevenue>10000  group by ProductLine   order by COUNT(AnnualRevenue)  asc ;
+
+
+select min(AnnualRevenue),ProductLine from DimReseller where AnnualRevenue>10000  group by ProductLine   order by COUNT(AnnualRevenue)  asc ;
+
+select  count(DISTINCT AnnualRevenue) from DimReseller where AnnualRevenue>10000  group by ProductLine    having  count( DISTINCT AnnualRevenue)>3 order by COUNT(AnnualRevenue)  asc ;
+
+
+ 
+ select DimProduct.ProductAlternateKey,DimProduct.EnglishProductName,FactResellerSales.SalesAmount,FactResellerSales.OrderQuantity,FactSalesQuota.EmployeeKey,FactSalesQuota.SalesQuotaKey from ((DimProduct inner join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey)inner join  FactSalesQuota on FactResellerSales.EmployeeKey=FactSalesQuota.EmployeeKey)
+
+
+ select DimProduct.ProductAlternateKey,DimProduct.EnglishProductName,FactResellerSales.SalesAmount,FactResellerSales.OrderQuantity,FactSalesQuota.EmployeeKey,FactSalesQuota.SalesQuotaKey from ((DimProduct left join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey)inner join  FactSalesQuota on FactResellerSales.EmployeeKey=FactSalesQuota.EmployeeKey)
+
+
+ select DimProduct.ProductAlternateKey,DimProduct.EnglishProductName,FactResellerSales.SalesAmount,FactResellerSales.OrderQuantity,FactSalesQuota.EmployeeKey,FactSalesQuota.SalesQuotaKey from ((DimProduct full join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey)inner join  FactSalesQuota on FactResellerSales.EmployeeKey=FactSalesQuota.EmployeeKey)
+
+
+

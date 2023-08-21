@@ -6,3 +6,17 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+<asp:FileUpload ID="FileUpload1" runat="server" />
+<asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="Upload" />
+<hr />
+<asp:DataList ID="DataList1" Visible="true" runat="server" AutoGenerateColumns="false"
+              RepeatColumns="2" CellSpacing="5">
+    <ItemTemplate>
+        <u>
+            <%# Eval("Name") %>
+        </u>
+        <hr />
+        <video id="VideoPlayer" src='<%# Eval("Id", "File.ashx?Id={0}") %>' controls="true"
+               width="300" height="300" loop="true" />
+    </ItemTemplate>
+</asp:DataList>

@@ -110,6 +110,7 @@
     <Content Include="autocomplete.asmx" />
     <Content Include="autocompletetextbox.asmx" />
     <Content Include="autocompletetextbox.aspx" />
+    <Content Include="texbox11.aspx" />
     <Content Include="xmlwebform.aspx" />
     <None Include="Connected Services\ServiceReferencedata1\WebService1.disco" />
     <None Include="Connected Services\ServiceReferencedata1\configuration91.svcinfo" />
@@ -521,6 +522,13 @@
     </Compile>
     <Compile Include="summary validation.aspx.designer.cs">
       <DependentUpon>summary validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="texbox11.aspx.cs">
+      <DependentUpon>texbox11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="texbox11.aspx.designer.cs">
+      <DependentUpon>texbox11.aspx</DependentUpon>
     </Compile>
     <Compile Include="updatepanel.aspx.cs">
       <DependentUpon>updatepanel.aspx</DependentUpon>

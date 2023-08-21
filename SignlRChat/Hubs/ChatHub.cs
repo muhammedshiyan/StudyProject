@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.SignalR;
-
-
-
+using System.Collections.Concurrent;
 
 namespace SignlRChat.Hubs
 {
@@ -18,6 +16,16 @@ namespace SignlRChat.Hubs
 
         }
 
+        public async Task SendVideo(string user, string videoUrl)
+        {
+            await Clients.All.SendAsync("ReceiveVideo", user, videoUrl);
+        }
+
+
+
+
+
 
     }
 }
+  

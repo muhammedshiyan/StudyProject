@@ -73,7 +73,7 @@ namespace SignlRChat.Areas.Identity.Pages.Account
 
             ReturnUrl = returnUrl;
         }
-
+        
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -83,11 +83,13 @@ namespace SignlRChat.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
+               
+
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -101,7 +103,10 @@ namespace SignlRChat.Areas.Identity.Pages.Account
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+
+
                     return Page();
+               
                 }
             }
 

@@ -39,53 +39,59 @@ namespace fileuploadcore.Pages
         //{
         //    ViewData["SuccessMessage"] = "";
         //}
-        public IActionResult OnPostUpload(FileUpload fileUpload)
-        {
-            //Creating upload folder
-            if (!Directory.Exists(fullPath))
-            {
-                Directory.CreateDirectory(fullPath);
-            }
-            var formFile = fileUpload.FormFile;
-            var filePath = Path.Combine(fullPath, formFile.FileName);
 
-            using (var stream = System.IO.File.Create(filePath))
-            {
-                formFile.CopyToAsync(stream);
-            }
 
-            // Process uploaded files
-            // Don't rely on or trust the FileName property without validation.
 
-            // File upload to database
-            //Get File Name
-            var filename = Path.GetFileName(formFile.FileName);
-            //Get file Extension
-            var fileextension = Path.GetExtension(filename);
-            // concatenating  File Name and File Extension
-            var newfilename = String.Concat(Convert.ToString(Guid.NewGuid()), fileextension);
 
-            var documentViewmodel = new DocumentViewmodel()
-            {
-                Id = 0,
-                FileName = newfilename,
-                FileType = fileExtension,
-                Created = DateTime.Now,
-                Modified = DateTime.Now
-            };
 
-            using (var target = new MemoryStream())
-            {
-                formFile.CopyTo(target);
-                documentViewmodel.FileData = target.ToArray();
-            }
 
-            // use this documentViewmodel to save record in database
+ //       public IActionResult OnPostUpload(FileUpload fileUpload)
+ //       {
+ //           //Creating upload folder
+ //           if (!Directory.Exists(fullPath))
+ //           {
+ //               Directory.CreateDirectory(fullPath);
+ //           }
+ //           var formFile = fileUpload.FormFile;
+ //           var filePath = Path.Combine(fullPath, formFile.FileName);
 
- //           [FileName][nvarchar] (250) NOT NULL,
+ //           using (var stream = System.IO.File.Create(filePath))
+ //           {
+ //               formFile.CopyToAsync(stream);
+ //           }
+
+ //           // Process uploaded files
+ //           // Don't rely on or trust the FileName property without validation.
+
+ //           // File upload to database
+ //           //Get File Name
+ //           var filename = Path.GetFileName(formFile.FileName);
+ //           //Get file Extension
+ //           var fileextension = Path.GetExtension(filename);
+ //           // concatenating  File Name and File Extension
+ //           var newfilename = String.Concat(Convert.ToString(Guid.NewGuid()), fileextension);
+
+ //           var documentViewmodel = new DocumentViewmodel()
+ //           {
+ //               Id = 0,
+ //               FileName = newfilename,
+ //               FileType = fileExtension,
+ //               Created = DateTime.Now,
+ //               Modified = DateTime.Now
+ //           };
+
+ //           using (var target = new MemoryStream())
+ //           {
+ //               formFile.CopyTo(target);
+ //               documentViewmodel.FileData = target.ToArray();
+ //           }
+
+ //           // use this documentViewmodel to save record in database
+
+ ////           [FileName][nvarchar] (250) NOT NULL,
     
- //       [FileType] [varchar] (100) NULL,
-	//[FileData][varbinary] (max)NOT NULL,
+ ////       [FileType] [varchar] (100) NULL,
+	////[FileData][varbinary] (max)NOT NULL,
             
 
 
@@ -94,11 +100,31 @@ namespace fileuploadcore.Pages
 
 
 
-            ViewData["SuccessMessage"] = formFile.FileName.ToString() + " files uploaded!!";
-            return Page();
+ //           ViewData["SuccessMessage"] = formFile.FileName.ToString() + " files uploaded!!";
+ //           return Page();
+ //       }
+
+
+
+        public async Task<IActionResult> OnPostUploadAsync(IFormFile formFile)
+        {
+            if (formFile != null && formFile.Length > 0)
+            {
+                // Process and save the uploaded image
+                // Generate a unique filename, save the file, etc.
+                string imagePath = "path_to_your_image_directory/";// + uniqueFileName;
+
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await formFile.CopyToAsync(stream);
+                }
+
+                // Return the image URL as JSON response
+                return new JsonResult(new { imageUrl = imagePath });
+            }
+
+            return BadRequest("No file uploaded.");
         }
-
-
 
         public class FileUpload
         {

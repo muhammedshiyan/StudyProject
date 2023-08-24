@@ -12,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("SignlRChatCont
 builder.Services.AddDbContext<SignlRChatContext>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<SignlRChatUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<SignlRChatUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<SignlRChatContext>();
 
 

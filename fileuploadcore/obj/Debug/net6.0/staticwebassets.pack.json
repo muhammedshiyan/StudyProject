@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\fileuploadcore.bundle.scp.css"
     },
     {
+      "Id": "D:\\StudyProject\\fileuploadcore\\wwwroot\\Home1Controller.cs",
+      "PackagePath": "staticwebassets\\Home1Controller.cs"
+    },
+    {
+      "Id": "D:\\StudyProject\\fileuploadcore\\wwwroot\\HomeController.cs",
+      "PackagePath": "staticwebassets\\HomeController.cs"
+    },
+    {
       "Id": "D:\\StudyProject\\fileuploadcore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

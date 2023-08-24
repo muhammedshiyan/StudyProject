@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "809dPLgQ3M3g6bc4U3jhUe+wIlbVwZD92i0HgPuRdOJ9i6VIz6H8TKwCyJg/dI//9NTDfgI0/oEd+kwkn1T0bw==",
+  "dgSpecHash": "nswvq6fzL3DCFSsnD5vebfUnzhFM1XfEhknucEQZHkhOLWCGhy8ES/4q6m1He3K75eEis2jSPMzibMoFhCxLkg==",
   "success": true,
   "projectFilePath": "D:\\StudyProject\\fileuploadcore\\fileuploadcore.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\shiyan\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\shiyan\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\shiyan\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\shiyan\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\shiyan\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\shiyan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\shiyan\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",

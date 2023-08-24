@@ -16,7 +16,17 @@
             <%# Eval("Name") %>
         </u>
         <hr />
+        
         <video id="VideoPlayer" src='<%# Eval("Id", "File.ashx?Id={0}") %>' controls="true"
                width="300" height="300" loop="true" />
     </ItemTemplate>
 </asp:DataList>
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Choose file to upload:</label>
+        <input type="file" name="file" id="file" class="form-control-file">
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

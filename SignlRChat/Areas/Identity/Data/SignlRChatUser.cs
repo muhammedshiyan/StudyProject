@@ -17,5 +17,8 @@ public class SignlRChatUser : IdentityUser
     [Required]
     public string place { get; set;}
 
+    [Required]
+    public string ProfileImage { get; set; }
+    
 }
 

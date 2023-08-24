@@ -11,6 +11,10 @@ public class SignlRChatContext : IdentityDbContext<SignlRChatUser>
     public SignlRChatContext(DbContextOptions<SignlRChatContext> options)
         : base(options)
     {
+
+
+
+
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -29,7 +33,8 @@ public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<Signl
        builder.Property(x =>x.FirstName).HasMaxLength(50);
        builder.Property(x => x.LastName).HasMaxLength(50);
        builder.Property(x => x.place).HasMaxLength(50);
-       
+       builder.Property(x => x.ProfileImage).HasMaxLength(100000).IsRequired();
+
     }
 }
 

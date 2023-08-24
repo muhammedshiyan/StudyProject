@@ -6,9 +6,57 @@
 
 <h1>@ViewData["Title"]</h1>
 <head>
+@*
+    <script>
+
+
+        window.onload = function () {
+            const registerButton = document.getElementById("registerSubmit");
+
+          
+            function hideButton() {
+                registerButton.style.display = "none";
+            }
+
+           
+            hideButton();
+        };
+    </script>*@
+
+    <scipt>
+
+
+    </scipt>
+
+
+
+
+
+    
+
+
+
     <script type="text/javascript">
         var verifyCallback = function (response) {
-            alert(response);
+
+            if(response!=null) {
+                
+                //document.getElementById("registerSubmit").style.display="block";
+                
+                
+                alert(response); 
+            
+
+
+
+            
+            
+            }
+            else{
+                alert('finish the  recaptha')
+                
+            }
+
         };
         var widgetId1;
         var widgetId2;
@@ -26,6 +74,25 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <style>
         /* Custom styles for the registration form */
@@ -115,6 +182,14 @@
             </div>
 
 
+
+            <div class="form-floating">
+                <input asp-for="Input.ProfileImage" type="file"  class="form-control" autocomplete="username" aria-required="true" />
+                <label asp-for="Input.ProfileImage"></label>
+                <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
+            </div>
+
+
             <div class="form-floating">
                 <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
                 <label asp-for="Input.Email"></label>
@@ -133,9 +208,12 @@
 
 
             <div id="example3"></div>
+
+
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
 
-           
+
 
         </form>
     </div>
@@ -149,7 +227,7 @@
                 {
                     <div>
                         <p>
-                           
+                           success
                         </p>
                     </div>
                 }

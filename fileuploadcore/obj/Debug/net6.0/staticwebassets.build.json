@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "obxfOsWNm/D4u4PpzmAjZJBPTzhWpqkk8mr+i73M1LI=",
+  "Hash": "gEBxNyUYBDQp4r/QNOhAjwdn7/tAM6EfYIZQKzb68U4=",
   "Source": "fileuploadcore",
   "BasePath": "_content/fileuploadcore",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\StudyProject\\fileuploadcore\\wwwroot\\Home1Controller.cs",
+      "SourceId": "fileuploadcore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\StudyProject\\fileuploadcore\\wwwroot\\",
+      "BasePath": "_content/fileuploadcore",
+      "RelativePath": "Home1Controller.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Home1Controller.cs"
+    },
+    {
+      "Identity": "D:\\StudyProject\\fileuploadcore\\wwwroot\\HomeController.cs",
+      "SourceId": "fileuploadcore",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\StudyProject\\fileuploadcore\\wwwroot\\",
+      "BasePath": "_content/fileuploadcore",
+      "RelativePath": "HomeController.cs",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\HomeController.cs"
     },
     {
       "Identity": "D:\\StudyProject\\fileuploadcore\\wwwroot\\js\\site.js",

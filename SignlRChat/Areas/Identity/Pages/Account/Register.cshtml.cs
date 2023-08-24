@@ -90,6 +90,11 @@ namespace SignlRChat.Areas.Identity.Pages.Account
             public string Place { get; set; }
 
 
+            [Required]
+            [StringLength(10000, ErrorMessage = "select image")]
+            [Display(Name = "ProfileImage")]
+            public string ProfileImage { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -128,6 +133,22 @@ namespace SignlRChat.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
+            //if (file == null || file.Length == 0)
+            //{
+            //    return Content("file not selected");
+            //}
+
+            //var path = Path.Combine(
+            //            Directory.GetCurrentDirectory(), "wwwroot/uploads",
+            //            file.FileName);
+
+            //using (var stream = new FileStream(path, FileMode.Create))
+            //{
+            //    await file.CopyToAsync(stream);
+            //}
+
+
+
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
@@ -136,7 +157,7 @@ namespace SignlRChat.Areas.Identity.Pages.Account
                 user.FirstName = Input.FirstNAme;
                 user.LastName = Input.LastName;
                 user.place=Input.Place; 
-
+                user.ProfileImage = Input.ProfileImage;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

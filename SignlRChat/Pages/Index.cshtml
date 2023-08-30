@@ -8,7 +8,9 @@
    @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>*@
    @* <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
-*@
+    *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.12/signalr.min.js"></script>
+
     <style>
         .container {
             max-width: 600px;
@@ -160,10 +162,44 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer>
     </script>
-
+    <style>
+        .connected-users {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: white;
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+
+
+        <div id="connected-users" class="connected-users">
+            <h3>Connected Users</h3>
+            <ul id="user-list"></ul>
+            <button id="open-private-chat-btn">Open Private Chat</button>
+            <select id="private-chat-user">
+                <option value="">Select a user</option>
+            </select>
+        </div>
+
+        <div id="connected-devices-count">Connected Devices: <span id="devices-count">0</span></div>
+            
+        </div>
+        <div id="message-count">
+            Message Count: 0
+        </div>
+
+    <div id="message-container">
+        <!-- Messages will be dynamically added here -->
+    </div>
+
+
+
         <div class="row p-1 label">
             <div class="col-1 label-text">User:</div>
             <div class="input-col"><input type="text" id="userInput" /></div>
@@ -226,13 +262,18 @@
         </div>
 
 
+        <div id="chat-window">
+            <!-- Chat messages go here -->
+        </div>
+        <input type="text" id="user-id-input" placeholder="Target User ID">
+        <input type="text" id="message-input" placeholder="Message">
+        <button id="send-message-button">Sendtospecific</button>
 
 
 
 
 
-
-        @for (int i = 1; i <=2; i++)
+@*        @for (int i = 1; i <=2; i++)
         {
             
 
@@ -249,11 +290,11 @@
 
          
         }
+*@
 
 
 
-
-        <select id="videoSelector">
+@*        <select id="videoSelector">
             <option value="1">Video 1</option>
             <option value="2">Video 2</option>
             <option value="3">Video 3</option>
@@ -266,14 +307,14 @@
            
             <source id="videoSource" src="" type="video/mp4">
            
-        </video>
+        </video>*@
 
 
     </div>
   
 </body>
 <head>
-    <script>
+@*    <script>
         document.addEventListener("DOMContentLoaded", function () {
             const mediaContainer = document.getElementById("mediaContainer");
             const timeline = document.querySelector(".timeline");
@@ -351,7 +392,7 @@
                 mediaContainer.appendChild(mediaElement);
             });
         });
-    </script>
+    </script>*@
 
 
  

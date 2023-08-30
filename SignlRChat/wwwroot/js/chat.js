@@ -176,7 +176,7 @@ connection.on("Receiveurl", function (image, video, text, userId) {
 
 
 
-connection.on("ReceiveMessagetospecificuser", (userId, sender, message) => {
+connection.on("ReceiveMessagetospecificuser",function(userId, sender, message) {
     // Handle receiving the message targeted to a specific user
     // You can display the message in a specific chat window or handle it as needed
   //  console.log(`Message for ${userId} - ${sender}: ${message}`);
@@ -360,25 +360,6 @@ commentButton.addEventListener("click", function () {
 
 
 
-
-document.getElementById("joinButtongroup").addEventListener("click", async () => {
-    var groupName = document.getElementById("groupName").value;
-    await connection.invoke("JoinGroup", groupName);
-});
-
-// Send a message to the group
-document.getElementById("sendButtongroup").addEventListener("click", async () => {
-    var groupName = document.getElementById("groupName").value;
-    var message = document.getElementById("messageInputgroup").value;
-    await connection.invoke("SendMessageToGroup", groupName, message);
-});
-
-// Handle incoming messages
-connection.on("ReceiveMessage", (message) => {
-    var messageElement = document.createElement("li");
-    messageElement.textContent = message;
-    document.getElementById("messagesListgroup").appendChild(messageElement);
-});
 
 
 

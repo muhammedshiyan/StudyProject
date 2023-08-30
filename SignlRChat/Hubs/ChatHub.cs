@@ -87,9 +87,8 @@ namespace SignlRChat.Hubs
             MessageCount++;
             string sender = Context.User.Identity.Name;
             //  await Clients.Client(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
-            //  await Clients.User(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
-            await Clients.All.SendAsync("ReceiveMessage", userId, message, MessageCount);
-
+            await Clients.User(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
+          
         }
 
         public async Task LikeMessage(int messageId)
@@ -109,22 +108,7 @@ namespace SignlRChat.Hubs
 
 
 
-        public async Task JoinGroup(string groupName)
-        {
-            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
-            await Clients.Group(groupName).SendAsync("UserJoined", $"{Context.ConnectionId} has joined the group {groupName}");
-        }
-
-        public async Task SendMessageToGroup(string groupName, string message)
-        {
-            await Clients.Group(groupName).SendAsync("ReceiveMessage", $"{Context.ConnectionId}: {message}");
-        }
-
-        public async Task LeaveGroup(string groupName)
-        {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
-            await Clients.Group(groupName).SendAsync("UserLeft", $"{Context.ConnectionId} has left the group {groupName}");
-        }
+  
     }
 }
   

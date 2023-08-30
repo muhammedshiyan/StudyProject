@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using static System.Net.Mime.MediaTypeNames;
 using NuGet.Configuration;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace SignlRChat.Hubs
 {
-  
-    public class ChatHub:Hub
+
+    public class ChatHub : Hub
     {
         private static int MessageCount = 0;
         private static int ConnectedDevices = 0;
@@ -36,7 +38,7 @@ namespace SignlRChat.Hubs
             MessageCount++;
             string userId = Context.User.Identity.Name;
 
-            await Clients.All.SendAsync("Receiveurl",image,video,text, userId);
+            await Clients.All.SendAsync("Receiveurl", image, video, text, userId);
 
 
 
@@ -87,6 +89,7 @@ namespace SignlRChat.Hubs
             //  await Clients.Client(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
             //  await Clients.User(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
             await Clients.All.SendAsync("ReceiveMessage", userId, message, MessageCount);
+
         }
 
         public async Task LikeMessage(int messageId)
@@ -105,6 +108,23 @@ namespace SignlRChat.Hubs
 
 
 
+
+        public async Task JoinGroup(string groupName)
+        {
+            await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+            await Clients.Group(groupName).SendAsync("UserJoined", $"{Context.ConnectionId} has joined the group {groupName}");
+        }
+
+        public async Task SendMessageToGroup(string groupName, string message)
+        {
+            await Clients.Group(groupName).SendAsync("ReceiveMessage", $"{Context.ConnectionId}: {message}");
+        }
+
+        public async Task LeaveGroup(string groupName)
+        {
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupName);
+            await Clients.Group(groupName).SendAsync("UserLeft", $"{Context.ConnectionId} has left the group {groupName}");
+        }
     }
 }
   

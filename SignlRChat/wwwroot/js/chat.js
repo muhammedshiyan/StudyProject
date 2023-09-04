@@ -176,14 +176,29 @@ connection.on("Receiveurl", function (image, video, text, userId) {
 
 
 
-connection.on("ReceiveMessagetospecificuser",function(userId, sender, message) {
-    // Handle receiving the message targeted to a specific user
-    // You can display the message in a specific chat window or handle it as needed
-  //  console.log(`Message for ${userId} - ${sender}: ${message}`);
-    console.log('ReceiveMessagetospecificuser');
 
 
-});
+
+    connection.on("ReceiveMessagetospecificuser", function (userId, sender, message) {
+
+        document.getElementById("message-count").innerText = `Message Count: ${messageCount}`;
+
+        console.log('ReceiveMessagetospecificuser started ');
+
+        var li = document.createElement("li");
+        document.getElementById("messagesList").appendChild(li);
+
+        li.textContent = `${user}  says ${message}`;
+
+        console.log('ReceiveMessagetospecificuser completed ');
+    });
+
+
+
+
+
+
+
 
 
 

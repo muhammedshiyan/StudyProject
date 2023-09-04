@@ -86,8 +86,8 @@ namespace SignlRChat.Hubs
         {
             MessageCount++;
             string sender = Context.User.Identity.Name;
-            //  await Clients.Client(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
-            await Clients.User(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
+              await Clients.Client(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
+         //   await Clients.User(userId).SendAsync("ReceiveMessagetospecificuser", userId, sender, message);
           
         }
 

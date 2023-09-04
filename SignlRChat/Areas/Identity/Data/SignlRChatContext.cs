@@ -8,6 +8,8 @@ namespace SignlRChat.Data;
 
 public class SignlRChatContext : IdentityDbContext<SignlRChatUser>
 {
+    internal object ApplicationUserEntityConfiguration;
+
     public SignlRChatContext(DbContextOptions<SignlRChatContext> options)
         : base(options)
     {
@@ -34,7 +36,10 @@ public class ApplicationUserEntityConfiguration : IEntityTypeConfiguration<Signl
        builder.Property(x => x.LastName).HasMaxLength(50);
        builder.Property(x => x.place).HasMaxLength(50);
        builder.Property(x => x.ProfileImage).HasMaxLength(100000).IsRequired();
+       builder.Property(x => x.Description).HasMaxLength(100000).IsRequired();
 
+     
+           // FilePath
     }
 }
 

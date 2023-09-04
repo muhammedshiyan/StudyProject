@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "c/GfE+gY3SBOqJPnL09fMz/Wbjha+oE8NxyJEF/UOy12Bk9a6atpFSswb9YtpdKxdsFkoBtaqv9U6/i5FSh50g==",
+  "success": true,
+  "projectFilePath": "D:\\StudyProject\\projectemail\\projectemail.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shiyan\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
+    "C:\\Users\\shiyan\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
+    "C:\\Users\\shiyan\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

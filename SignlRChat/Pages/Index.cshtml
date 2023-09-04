@@ -250,10 +250,34 @@
         </ul>
 
 
+  @*  <form method="post" enctype="multipart/form-data" action="/FileUpload/actionupload">
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="file">Choose a File:</label>
+            <input type="file" id="file" name="file" class="form-control-file" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+*@
+
+
+
+
+
         <div class="input-group">
             <input type="text" id="imageUrlInput" placeholder="Enter image URL" class="form-control">
             <input type="text" id="videoUrlInput" placeholder="Enter video URL" class="form-control">
             <input type="text" id="textContentInput" placeholder="Enter text content" class="form-control">
+            
+        
+            <label for="file">Choose a File:</label>
+            <input type="file" id="file" name="file" class="form-control-file" />
+        
             <button id="appendButton" class="btn btn-primary">Append</button>
         </div>
         <div id="mediaContainer">

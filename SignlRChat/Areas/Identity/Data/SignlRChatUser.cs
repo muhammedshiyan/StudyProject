@@ -19,6 +19,6 @@ public class SignlRChatUser : IdentityUser
 
     [Required]
     public string ProfileImage { get; set; }
-    
+    public object Description { get; internal set; }
 }
 

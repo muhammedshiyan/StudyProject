@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 //newly added
 
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resourses");
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc()
     .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
     .AddDataAnnotationsLocalization();
@@ -35,7 +35,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 var app = builder.Build();
 
-
+app.UseRequestLocalization();
 
 
 
@@ -60,6 +60,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=home}/{action=index}/{id?}");
 
 app.Run();

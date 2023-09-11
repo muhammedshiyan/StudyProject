@@ -17,7 +17,7 @@ namespace projectmultilingual.Controllers.API
         public async Task<IActionResult> Get()
         {
             var guid = Guid.NewGuid();
-            return Ok(_localizer["RandomGUID", guid.ToString()].Value);
+            return Ok(_localizer["RandomGUID {0}", guid.ToString()].Value);
         }
     }
 }

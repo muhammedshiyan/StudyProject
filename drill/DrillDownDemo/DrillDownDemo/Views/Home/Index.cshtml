@@ -1,0 +1,201 @@
+﻿@*@{
+    ViewBag.Title = "HomeDrill Down Demo";
+}
+@model IEnumerable<DrillDownDemo.Models.Student>
+
+
+<table>
+    <tr>
+        <th>Action</th>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>email</th>
+        <th>Department</th>
+    </tr>
+</table>
+@foreach (var s in Model)
+{
+    <tr style="background-color: #00CCFF; color: #FFFFFF;">
+        <td>
+            <a href="#" class="collapse expand-btn">Expand</a>
+            <a href="#" class="expand collapse-btn">Collapse</a>
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.email)
+        </td>
+        <td>
+            @Html.DisplayFor(p => s.Department)
+        </td>
+    </tr>
+
+    <tr id="@s.ID" class="expand collapse">
+        <td></td>
+        <td colspan="4">
+            <table>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Semester</th>
+                </tr>
+                @foreach (var course in s.Courses)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(p => course.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(p => course.CourseName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(p => course.SemesterName)
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </td>
+        <td></td>
+    </tr>
+
+
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/JavaScript.js"></script>*@
+
+
+@{
+    ViewBag.Title = "HomeDrill Down Demo";
+}
+@model IEnumerable<DrillDownDemo.Models.Student>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .expand {
+            display: none;
+        }
+
+        .expand-btn,
+        .collapse-btn {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Action</th>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr style="background-color: #00CCFF; color: #FFFFFF;">
+                <td>
+                    <a href="#" class="expand-btn">Expand</a>
+                    @*<a href="#" class="collapse-btn">Collapse</a>*@
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(p => s.Department)
+                </td>
+            </tr>
+            <tr class="expand">
+                <td></td>
+                <td colspan="6">
+                    <table>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Semester</th>
+                        </tr>
+                        @foreach (var course in s.Courses)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(p => course.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(p => course.CourseName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(p => course.SemesterName)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+
+    @*<script>
+        $(document).ready(function () {
+            $(".expand-btn").click(function () {
+                $(this).closest("tr").next(".expand").toggle();
+                $(this).toggleClass("collapse-btn").toggleClass("expand-btn");
+            });
+
+            $(".collapse-btn").click(function () {
+                $(this).closest("tr").next(".expand").toggle();
+                $(this).toggleClass("expand-btn").toggleClass("collapse-btn");
+            });
+        });
+    </script>*@
+
+    <script>
+        $(document).ready(function () {
+            $(".expand-btn").click(function () {
+                var row = $(this).closest("tr");
+                var expandRow = row.next(".expand");
+
+                if (expandRow.is(":visible")) {
+                    expandRow.hide();
+                    $(this).text("Expand");
+                } else {
+                    expandRow.show();
+                    $(this).text("Collapse");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

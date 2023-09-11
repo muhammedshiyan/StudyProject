@@ -1,0 +1,97 @@
+﻿@model List<Employee>
+
+<h1>Employee List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Manager ID</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeId</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.ManagerId</td>
+
+                <td>
+                    @*<button type="button" class="btn btn-primary" class="viewSubordinatesButton" data-manager-id=@employee.ManagerId>View Subordinates js</button>*@
+                    <button type="button" class="btn btn-primary viewSubordinatesButton" data-manager-id="@employee.ManagerId" id="viewSubordinatesButton-@employee.EmployeeId">View Subordinates js</button>
+
+                </td>
+
+@*                <form asp-controller="home" asp-action="SubordinatesOfManager"  method="post">
+                    <input type="hidden" name="managerId" value=@employee.ManagerId />
+                    <div class="form-group">
+                
+                    </div>
+                    <!-- Other form fields, if needed -->
+
+                    <button type="submit" class="btn btn-primary">View Subordinates</button>
+                </form>*@
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div id="resultDiv"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.viewSubordinatesButton').click(function () {
+            var managerId = $(this).data('manager-id');
+            var clickedButton = $(this);
+
+            // Get the current color of the button
+            var currentColor = clickedButton.css('background-color');
+
+            if (currentColor === 'rgb(255, 0, 0)') {
+                // Button is red, perform action 1 (e.g., disable)
+                clickedButton.css('background-color', 'green'); // Change color to green
+            } else if (currentColor === 'rgb(0, 128, 0)') {
+                // Button is green, perform action 2 (e.g., enable)
+                clickedButton.css('background-color', 'blue'); // Change color to blue
+            }
+
+            // Add your AJAX logic here based on the button's color
+            $.ajax({
+                url: `/home/SubordinatesOfManager?managerId=${managerId}`, // Use backticks and correct URL format
+                type: 'GET',
+                success: function (data) {
+                    // Handle the response data here
+                    $('#resultDiv').html(data);
+                }
+            });
+        });
+    });
+</script>
+
+
+<form id="myForm" action="/home/SubordinatesOfManager?managerId=${managerId}" method="post">
+    <label for="inputText">Enter manager id:</label>
+    <input type="text" id="inputText" name="managerId" required>
+    <button type="submit" id="submitButton">Submit</button>
+</form>
+
+
+@*<h1>SubordinatesOfManager List</h1>
+ 
+<form asp-action="SubordinatesOfManager">
+   
+    <div class="form-group">
+        <label asp-for="ManagerId"></label>
+        <input asp-for="ManagerId" class="form-control" />
+        <span asp-validation-for="ManagerId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+*@

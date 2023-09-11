@@ -9,8 +9,6 @@ D:\StudyProject\projectmultilingual\bin\Debug\net6.0\projectmultilingual.pdb
 D:\StudyProject\projectmultilingual\bin\Debug\net6.0\en\projectmultilingual.resources.dll
 D:\StudyProject\projectmultilingual\bin\Debug\net6.0\fr\projectmultilingual.resources.dll
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.csproj.AssemblyReference.cache
-D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resourses.API.LanguageController.en.resources
-D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resourses.API.LanguageController.fr.resources
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.csproj.GenerateResource.cache
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.GeneratedMSBuildEditorConfig.editorconfig
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.AssemblyInfoInputs.cache
@@ -36,5 +34,7 @@ D:\StudyProject\projectmultilingual\obj\Debug\net6.0\refint\projectmultilingual.
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.pdb
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.genruntimeconfig.cache
 D:\StudyProject\projectmultilingual\obj\Debug\net6.0\ref\projectmultilingual.dll
-D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resourses.Views.Index.en.resources
-D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resourses.Views.index.fr.resources
+D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resources.API.LanguageController.en.resources
+D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resources.API.LanguageController.fr.resources
+D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resources.Views.Index.en.resources
+D:\StudyProject\projectmultilingual\obj\Debug\net6.0\projectmultilingual.Resources.Views.index.fr.resources

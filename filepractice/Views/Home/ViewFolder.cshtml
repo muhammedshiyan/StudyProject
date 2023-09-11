@@ -1,0 +1,72 @@
+﻿@model filepractice.Models.folderlistmodel
+
+<h1>Contents of the Folder</h1>
+@ViewBag.message
+
+<link rel="stylesheet" href="~/css/file-manager.css" />
+
+<div class="container">
+    <div class="header">
+        <h1>List of Folders</h1>
+    </div>
+
+    <ul class="folder-list">
+        @foreach (var folderName in Model.FolderNames)
+        {
+            
+            <li class="folder-item">
+                <img src="~/images/folder-icon.png" class="folder-icon" />
+               @* <a href="/Home/ViewFolder/ @folderName ">Link</a>*@
+                <a asp-controller="Home" asp-action="ViewFolder" asp-route-folderName="@ViewBag.message@ViewBag.l@folderName" class="folder-link">@folderName</a>
+                <button class="folder-link delete-file-button" data-file-name="@ViewBag.message@ViewBag.l@folderName">Delete</button>
+            </li>
+        }
+    </ul>
+
+</div>
+
+<form method="post" asp-controller="home" asp-route-folderName="@ViewBag.message" asp-action="Create">
+    <div class="form-group">
+        <label for="folderName">Folder Name:</label>
+        @*<a asp-controller="Home" asp-action="Create" asp-route-folderName="@ViewBag.message" class="folder-link">type folder name click</a>*@
+        <input type="text" id="newfolderName" asp-route-param1=@ViewBag.message name="newfolderName" class="form-control">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Folder</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".delete-file-button").click(function () {
+            var fileName = $(this).data("file-name");
+
+            // Confirm the delete operation with the user
+            if (confirm("Are you sure you want to delete " + fileName + "?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/Delete",
+                    data: { fileName: fileName },
+                    success: function (data) {
+                        if (data.success) {
+                            // Successful deletion, update the UI or show a message
+                            console.log(data.message);
+                            // Reload the page or update the folder list as needed
+                            location.reload();
+                        } else {
+                            // Error occurred, show an error message
+                            console.error(data.message);
+                        }
+                    },
+                    error: function (error) {
+                        // AJAX request failed, show an error message
+                        console.error("AJAX request failed: " + error.statusText);
+                    }
+                });
+            }
+        });
+    });
+</script>
+

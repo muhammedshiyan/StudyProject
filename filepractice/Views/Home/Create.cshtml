@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Create Folder";
+}
+
+
+
+<h1>Create Folder</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<p>
+    <a asp-action="Index">Back to Home</a>
+</p>

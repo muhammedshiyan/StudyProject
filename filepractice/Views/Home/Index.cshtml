@@ -1,0 +1,173 @@
+﻿@model filepractice.Models.folderlistmodel
+<style>
+    /* Apply styling to the container */
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    /* Style the header */
+    .header {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    /* Style the folder list */
+    .folder-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .folder-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .folder-icon {
+        width: 30px;
+        margin-right: 10px;
+    }
+
+    .folder-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        flex-grow: 1;
+        display: block;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .folder-link:hover {
+            background-color: #f0f0f0;
+        }
+
+
+</style>
+@*<style>
+    /* Define styles for the folder list */
+    .folder-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    /* Style each folder item */
+    .folder-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    /* Style the folder icon */
+    .folder-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+
+    /* Style folder links */
+    .folder-link {
+        text-decoration: none;
+        color: #333; /* Change the color to your preference */
+        font-weight: bold;
+        transition: color 0.3s ease-in-out;
+    }
+
+        /* Add hover effect to folder links */
+        .folder-link:hover {
+            color: #007bff; /* Change the hover color to your preference */
+        }
+
+    /* Style the delete button */
+    .delete-file-button {
+        background-color: #dc3545; /* Red color for delete button */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        /* Add hover effect to delete button */
+        .delete-file-button:hover {
+            background-color: #c82333; /* Darker red color on hover */
+        }
+
+</style>
+*@
+
+
+<link rel="stylesheet" href="~/css/file-manager.css" />
+
+<div class="container">
+    <div class="header">
+        <h1>List of Folders</h1>
+    </div>
+
+    <ul class="folder-list">
+        @foreach (var folderName in Model.FolderNames)
+        {
+            var f = folderName;
+
+            <li class="folder-item">
+                <img src="~/images/folder-icon.png" class="folder-icon"/>
+               @* <a href="/Home/ViewFoldernew/one">Link</a>*@
+                <a asp-controller="Home" asp-action="ViewFolder" asp-route-folderName="@ViewBag.message@folderName" asp-route-param1="one" class="folder-link">@folderName</a>
+                <button class="folder-link delete-file-button" data-file-name="@folderName">Delete</button>
+            </li>
+        }
+    </ul>
+
+</div>
+
+<form method="post" asp-controller="home" asp-route-folderName="@ViewBag.message" asp-action="Create">
+    <div class="form-group">
+        <label for="folderName">Folder Name:</label>
+        <input type="text" id="newfolderName" asp-route-param1=@ViewBag.message name="newfolderName" class="form-control">
+    @*    <input type="text" id="folderName" name="folderName" class="form-control" >*@
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Folder</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(".delete-file-button").click(function () {
+            var fileName = $(this).data("file-name");
+
+            // Confirm the delete operation with the user
+            if (confirm("Are you sure you want to delete " + fileName + "?")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/Delete",
+                    data: { fileName: fileName },
+                    success: function (data) {
+                        if (data.success) {
+                            // Successful deletion, update the UI or show a message
+                            console.log(data.message);
+                            // Reload the page or update the folder list as needed
+                            location.reload();
+                        } else {
+                            // Error occurred, show an error message
+                            console.error(data.message);
+                        }
+                    },
+                    error: function (error) {
+                        // AJAX request failed, show an error message
+                        console.error("AJAX request failed: " + error.statusText);
+                    }
+                });
+            }
+        });
+    });
+</script>

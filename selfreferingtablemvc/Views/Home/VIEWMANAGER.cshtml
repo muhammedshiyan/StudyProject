@@ -1,0 +1,23 @@
+﻿@model List<EmployeeViewModel>
+
+<h1>Employee List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Manager Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.ManagerName</td>
+            </tr>
+        }
+    </tbody>
+</table>
